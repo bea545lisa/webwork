@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Beate Elisabeth Rohrmoser – Webentwicklerin</title>
+    <meta name="description" content="Webentwicklerin aus dem Raum München / Oberland. PHP, Laravel, Vue.js, React.">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
+<body>
+    <div id="app"></div>
+</body>
+</html>
