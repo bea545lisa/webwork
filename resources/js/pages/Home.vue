@@ -4,22 +4,23 @@
     <HeroSection />
     <ServicesSection />
     <SloganSection
-      text="Es führen viele Wege zum Gipfel des Berges, doch die Aussicht bleibt die gleiche."
-      author="Chinesisches Sprichwort"
-      bg="/images/slides/berge-1.jpg"
+      text="Nichts ist mächtiger als eine Idee, deren Zeit gekommen ist."
+      author="Victor Hugo"
     />
     <TechMarquee />
-    <PortfolioSection />
     <SloganSection
       text="Wir können den Wind nicht bestimmen, aber wir können die Segel richtig setzen."
-      bg="/images/slides/berge-wide.jpg"
+      bg="/images/slides/block-kite.jpg"
     />
+    <PortfolioSection />
     <ContactSection />
     <FooterSection />
   </div>
 </template>
 
 <script setup>
+import { onMounted, nextTick } from 'vue';
+import { useRouter } from 'vue-router';
 import NavBar from '../components/NavBar.vue';
 import HeroSection from '../components/HeroSection.vue';
 import ServicesSection from '../components/ServicesSection.vue';
@@ -28,4 +29,16 @@ import TechMarquee from '../components/TechMarquee.vue';
 import PortfolioSection from '../components/PortfolioSection.vue';
 import ContactSection from '../components/ContactSection.vue';
 import FooterSection from '../components/FooterSection.vue';
+
+const router = useRouter();
+
+onMounted(async () => {
+  const savedY = router.currentRoute.value.meta.savedScrollY;
+  if (savedY) {
+    await nextTick();
+    setTimeout(() => {
+      window.scrollTo({ top: savedY, behavior: 'instant' });
+    }, 400);
+  }
+});
 </script>

@@ -1,21 +1,21 @@
 <template>
-  <nav
+  <nav v-if="!isDetailPage"
     class="fixed top-0 w-full z-50 transition-all duration-300"
-    :class="scrolled ? 'bg-[#1e1e2e]/95 backdrop-blur-sm border-b border-white/5' : 'bg-transparent'"
+    :class="scrolled ? 'bg-white/60 backdrop-blur-md border-b border-[#5e5854]/50 py-2' : 'bg-transparent border-b border-transparent py-4'"
   >
-    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
 
       <RouterLink to="/" class="flex flex-col leading-tight group">
-        <span class="font-mono font-bold text-white tracking-wider">
-          <span class="text-orange-500">[</span>web<span class="text-orange-500">]</span>work
+        <span class="font-mono font-bold tracking-wider transition-all duration-300" :class="scrolled ? 'text-base text-[#1a1510]' : 'text-lg text-white'">
+          <span class="text-[#fb923c]">[</span>web<span class="text-[#fb923c]">]</span>work
         </span>
-        <span class="text-xs text-gray-500 group-hover:text-gray-400 transition">Webideen für das Oberland</span>
+        <span class="text-xs transition" :class="scrolled ? 'hidden' : 'text-gray-300'">Webideen für das Oberland</span>
       </RouterLink>
 
-      <ul class="hidden md:flex gap-8 text-sm font-medium text-gray-400">
+      <ul class="hidden md:flex gap-8 text-sm font-medium" :class="scrolled ? 'text-[#1a1510]' : 'text-white'">
         <li v-for="item in navItems" :key="item.href">
-          <a :href="item.href"
-            class="hover:text-orange-400 transition relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-orange-500 after:transition-all hover:after:w-full">
+          <a href="#" @click.prevent="scrollTo(item.href)"
+            class="hover:text-[#fb923c] transition relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[3px] after:bg-[#fb923c] after:transition-all hover:after:w-full">
             {{ item.label }}
           </a>
         </li>
@@ -26,16 +26,39 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { useRoute } from 'vue-router';
 
 const scrolled = ref(false);
+const route = useRoute();
+const isDetailPage = computed(() => route.name === 'project-detail');
 
 const navItems = [
   { href: '#angebot',   label: 'Angebot' },
   { href: '#portfolio', label: 'Referenzen' },
   { href: '#contact',   label: 'Kontakt' },
-  { href: '#impressum', label: 'Impressum' },
 ];
+
+function scrollTo(hash) {
+  const el = document.querySelector(hash);
+  if (!el) return;
+  const target = el.getBoundingClientRect().top + window.scrollY;
+  const start = window.scrollY;
+  const distance = target - start;
+  const duration = 700;
+  let startTime = null;
+
+  function ease(t) { return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t; }
+
+  function step(timestamp) {
+    if (!startTime) startTime = timestamp;
+    const progress = Math.min((timestamp - startTime) / duration, 1);
+    window.scrollTo(0, start + distance * ease(progress));
+    if (progress < 1) requestAnimationFrame(step);
+  }
+
+  requestAnimationFrame(step);
+}
 
 function onScroll() { scrolled.value = window.scrollY > 50; }
 onMounted(() => window.addEventListener('scroll', onScroll));

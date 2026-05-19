@@ -1,27 +1,26 @@
 <template>
-  <section id="angebot" class="py-24 bg-[#252540]">
+  <section id="angebot" class="py-24 bg-[#e4e4e4]">
     <div class="max-w-6xl mx-auto px-6">
 
       <div class="mb-16">
-        <span class="font-mono text-orange-500 text-sm tracking-widest uppercase">// Leistungen</span>
-        <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">Unser Angebot</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-[#5e5854]">Unser Angebot</h2>
         <div class="flex items-center gap-4 mt-3">
-          <div class="h-px w-12 bg-orange-500"></div>
-          <p class="text-gray-400">Alles rund um Ihren Online-Auftritt</p>
+          <div class="h-[3px] w-12 bg-[#fb923c]"></div>
+          <p class="text-gray-500">Alles rund um Ihren Online-Auftritt</p>
         </div>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
         <div
           v-for="service in services"
           :key="service.title"
-          class="group p-6 bg-[#1e1e2e] border border-white/5 rounded-xl hover:border-orange-500/30 transition-all duration-300 hover:-translate-y-1"
+          class="group p-6 bg-white border border-gray-200 rounded-xl hover:border-[#fb923c]/50 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col h-[260px]"
         >
           <div class="text-3xl mb-4">{{ service.icon }}</div>
-          <h3 class="font-semibold text-white mb-2 group-hover:text-orange-400 transition">
+          <h3 class="font-bold text-[#5e5854] text-xl mb-2 group-hover:text-[#fb923c] transition">
             {{ service.title }}
           </h3>
-          <p class="text-gray-500 text-sm leading-relaxed">{{ service.text }}</p>
+          <p class="text-gray-500 text-base leading-relaxed">{{ service.text }}</p>
         </div>
       </div>
 
