@@ -15,7 +15,7 @@
       <ul class="hidden md:flex gap-8 text-sm font-medium" :class="scrolled ? 'text-[#1a1510]' : 'text-white'">
         <li v-for="item in navItems" :key="item.href">
           <a href="#" @click.prevent="scrollTo(item.href)"
-            class="hover:text-[#fb923c] transition relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[3px] after:bg-[#fb923c] after:transition-all hover:after:w-full">
+            class="hover:text-[#fb923c] transition">
             {{ item.label }}
           </a>
         </li>
