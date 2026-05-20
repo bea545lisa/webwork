@@ -26,13 +26,13 @@ jobs:
         run: npm run build
 
       - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./
-          server-dir: /webwork-oberland.de/
+          server-dir: /www/htdocs/w021888c/webwork-oberland.de/
           exclude: |
             **/.git*
             **/.git*/**
