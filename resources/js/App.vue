@@ -1,19 +1,25 @@
 <template>
   <div class="relative">
-    <!-- Homepage immer im Hintergrund -->
-    <Home />
+    <!-- Statische Seiten (Impressum, Datenschutz) -->
+    <RouterView v-if="isStaticPage" />
 
-    <!-- Weicher Überblend-Overlay beim Zurücknavigieren -->
-    <Transition name="fade-overlay">
-      <div v-if="showOverlay" class="fixed inset-0 z-30 bg-[#e4e4e4] pointer-events-none" />
-    </Transition>
+    <!-- Homepage und Detailseiten -->
+    <template v-else>
+      <!-- Homepage immer im Hintergrund -->
+      <Home />
 
-    <!-- Detailseite als Overlay -->
-    <Transition name="drawer">
-      <div v-if="isDetailPage" class="fixed inset-0 z-40 overflow-y-auto detail-overlay">
-        <ProjectDetail />
-      </div>
-    </Transition>
+      <!-- Weicher Überblend-Overlay beim Zurücknavigieren -->
+      <Transition name="fade-overlay">
+        <div v-if="showOverlay" class="fixed inset-0 z-30 bg-[#e4e4e4] pointer-events-none" />
+      </Transition>
+
+      <!-- Detailseite als Overlay -->
+      <Transition name="drawer">
+        <div v-if="isDetailPage" class="fixed inset-0 z-40 overflow-y-auto detail-overlay">
+          <ProjectDetail />
+        </div>
+      </Transition>
+    </template>
   </div>
 </template>
 
@@ -25,6 +31,7 @@ import ProjectDetail from './pages/ProjectDetail.vue';
 
 const route = useRoute();
 const isDetailPage = computed(() => route.name === 'project-detail');
+const isStaticPage = computed(() => ['impressum', 'datenschutz'].includes(route.name));
 const showOverlay = ref(false);
 let savedScrollY = 0;
 

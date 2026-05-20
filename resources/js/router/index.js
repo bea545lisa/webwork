@@ -7,8 +7,8 @@ import Datenschutz from '../pages/Datenschutz.vue';
 const routes = [
   { path: '/', name: 'home', component: Home },
   { path: '/portfolio/:slug', name: 'project-detail', component: ProjectDetail },
-  { path: '/impressum', component: Impressum },
-  { path: '/datenschutz', component: Datenschutz },
+  { path: '/impressum', name: 'impressum', component: Impressum },
+  { path: '/datenschutz', name: 'datenschutz', component: Datenschutz },
 ];
 
 const router = createRouter({
