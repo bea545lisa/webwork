@@ -60,15 +60,18 @@ import { projects } from '../data/projects.js';
 const activeFilter = ref('all');
 
 const filters = [
-  { label: 'Alle',  value: 'all' },
-  { label: 'Web',   value: 'web' },
-  { label: 'App',   value: 'app' },
-  { label: 'Shop',  value: 'shop' },
+  { label: 'Alle',    value: 'all',    type: 'category' },
+  { label: 'Web',     value: 'web',    type: 'category' },
+  { label: 'App',     value: 'app',    type: 'category' },
+  { label: 'Shop',    value: 'shop',   type: 'category' },
+  { label: 'Admin',   value: 'admin',  type: 'category' },
+  { label: 'jQuery',  value: 'jQuery', type: 'tech' },
 ];
 
-const filteredProjects = computed(() =>
-  activeFilter.value === 'all'
-    ? projects
-    : projects.filter(p => p.category === activeFilter.value)
-);
+const filteredProjects = computed(() => {
+  if (activeFilter.value === 'all') return projects;
+  const f = filters.find(f => f.value === activeFilter.value);
+  if (f?.type === 'tech') return projects.filter(p => p.techs.includes(f.value));
+  return projects.filter(p => p.category === activeFilter.value);
+});
 </script>

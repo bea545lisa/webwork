@@ -17,7 +17,7 @@
         <div class="flex flex-wrap gap-6 text-sm text-[#5e5854] font-mono mt-3 ml-10">
           <span v-if="project.zeitraum">📅 {{ project.zeitraum }}</span>
           <a v-if="project.url" :href="project.url" target="_blank"
-            class="text-[#fb923c] hover:text-[#fb923c] transition">🔗 Website ansehen</a>
+            class="text-[#fb923c] hover:text-[#fb923c] transition">🔗 {{ project.url.includes('github.com') ? 'Git Repo' : 'Website ansehen' }}</a>
         </div>
         <div class="h-[3px] w-16 bg-[#fb923c] mt-6"></div>
       </div>
@@ -57,14 +57,31 @@
       <!-- Bildergalerie -->
       <div v-if="project.images.length > 0">
         <h2 class="font-mono text-sm text-[#fb923c] uppercase tracking-widest mb-6">[ Screenshots ]</h2>
-        <div class="flex flex-wrap gap-4">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
           <div v-for="(img, index) in project.images" :key="index"
-            class="overflow-hidden rounded-xl border border-white/5">
+            class="overflow-hidden rounded-xl border border-[#5e5854]/20 cursor-zoom-in hover:border-[#fb923c]/50 transition"
+            @click="openLightbox(index)">
             <img :src="img" :alt="`${project.title} ${index + 1}`"
-              class="max-w-full h-auto opacity-90 block mix-blend-multiply" />
+              class="w-full h-56 object-cover opacity-90 hover:opacity-100 transition" />
           </div>
         </div>
       </div>
+
+      <!-- Lightbox -->
+      <Transition name="fade">
+        <div v-if="lightboxIndex !== null"
+          class="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+          @click.self="closeLightbox">
+          <button @click="closeLightbox"
+            class="absolute top-4 right-6 text-white text-3xl hover:text-[#fb923c] transition">✕</button>
+          <button v-if="lightboxIndex > 0" @click="lightboxIndex--"
+            class="absolute left-4 text-white text-3xl hover:text-[#fb923c] transition px-4">‹</button>
+          <img :src="project.images[lightboxIndex]"
+            class="max-w-full max-h-[85vh] rounded-xl shadow-2xl object-contain" />
+          <button v-if="lightboxIndex < project.images.length - 1" @click="lightboxIndex++"
+            class="absolute right-4 text-white text-3xl hover:text-[#fb923c] transition px-4">›</button>
+        </div>
+      </Transition>
 
       <!-- Prev / Next -->
       <div class="flex justify-between mt-16 pt-8 border-t border-[#5e5854]/20">
@@ -92,7 +109,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { projects } from '../data/projects.js';
 import FooterSection from '../components/FooterSection.vue';
@@ -105,7 +122,16 @@ const currentIndex = computed(() => projects.findIndex(p => p.slug === route.par
 const prevProject = computed(() => currentIndex.value > 0 ? projects[currentIndex.value - 1] : null);
 const nextProject = computed(() => currentIndex.value < projects.length - 1 ? projects[currentIndex.value + 1] : null);
 
+const lightboxIndex = ref(null);
+function openLightbox(index) { lightboxIndex.value = index; }
+function closeLightbox() { lightboxIndex.value = null; }
+
 function goBack() {
   router.back();
 }
 </script>
+
+<style scoped>
+.fade-enter-active, .fade-leave-active { transition: opacity 0.2s; }
+.fade-enter-from, .fade-leave-to { opacity: 0; }
+</style>
