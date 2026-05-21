@@ -86,7 +86,16 @@ export const projects = [
       'Vollständiger Dark Mode mit Light Sea Green Akzenten',
     ],
     thumb: '/images/referenzen/thumbnails/thumb-rexpaw-admin.jpg',
-    images: [],
+    images: [
+      '/images/referenzen/rexpaw-admin/rexpaw-admin-1-shopifyframe.png',
+      '/images/referenzen/rexpaw-admin/rexpaw-admin-2-dashboard.png',
+      '/images/referenzen/rexpaw-admin/rexpaw-admin-3-produkte.png',
+      '/images/referenzen/rexpaw-admin/rexpaw-admin-4-produktdetail.png',
+      '/images/referenzen/rexpaw-admin/rexpaw-admin-5-kollektionsdetail.png',
+      '/images/referenzen/rexpaw-admin/rexpaw-admin-6-settings.png',
+      '/images/referenzen/rexpaw-admin/rexpaw-admin-7-bestellungen.png',
+      '/images/referenzen/rexpaw-admin/rexpaw-admin-8-tags.png',
+    ],
   },
   {
     id: 3,
