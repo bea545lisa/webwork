@@ -60,18 +60,26 @@ import { projects } from '../data/projects.js';
 const activeFilter = ref('all');
 
 const filters = [
-  { label: 'Alle',    value: 'all',    type: 'category' },
-  { label: 'Web',     value: 'web',    type: 'category' },
-  { label: 'App',     value: 'app',    type: 'category' },
-  { label: 'Shop',    value: 'shop',   type: 'category' },
-  { label: 'Admin',   value: 'admin',  type: 'category' },
-  { label: 'jQuery',  value: 'jQuery', type: 'tech' },
+  { label: 'Alle',      value: 'all',      type: 'category' },
+  { label: 'Web',       value: 'web',      type: 'category' },
+  { label: 'App',       value: 'app',      type: 'category' },
+  { label: 'Shop',      value: 'shop',     type: 'category' },
+  { label: 'Admin',     value: 'admin',    type: 'category' },
+  { label: 'React',     value: 'React',    type: 'tech' },
+  { label: 'Vue.js',    value: 'Vue',      type: 'tech' },
+  { label: 'Laravel',   value: 'Laravel',  type: 'tech' },
+  { label: 'jQuery',    value: 'jQuery',   type: 'tech' },
+  { label: 'PHP',       value: 'PHP',      type: 'tech' },
+  { label: 'Joomla',    value: 'Joomla',   type: 'tech' },
+  { label: 'Nicepage',  value: 'Nicepage', type: 'tech' },
 ];
 
 const filteredProjects = computed(() => {
   if (activeFilter.value === 'all') return projects;
   const f = filters.find(f => f.value === activeFilter.value);
-  if (f?.type === 'tech') return projects.filter(p => p.techs.includes(f.value));
+  if (f?.type === 'tech') return projects.filter(p =>
+    p.techs.some(t => t.toLowerCase().includes(f.value.toLowerCase()))
+  );
   return projects.filter(p => p.category === activeFilter.value);
 });
 </script>
