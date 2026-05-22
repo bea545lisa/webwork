@@ -62,7 +62,7 @@
             class="overflow-hidden rounded-xl border border-[#5e5854]/20 cursor-zoom-in hover:border-[#fb923c]/50 transition"
             @click="openLightbox(index)">
             <img :src="img" :alt="`${project.title} ${index + 1}`"
-              class="w-full h-56 object-cover opacity-90 hover:opacity-100 transition" />
+              :class="['w-full opacity-90 hover:opacity-100 transition', project.imageFit === 'contain' ? 'h-auto object-contain' : 'h-56 object-cover']" />
           </div>
         </div>
       </div>

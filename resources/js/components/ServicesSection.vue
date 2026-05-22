@@ -38,7 +38,7 @@ const services = [
   {
     title: 'Webentwicklung',
     icon: '⚙️',
-    text: 'Individuelle Web- und Intranetlösungen mit Laravel, PHP und MySQL. Prozessautomatisierung und API-Anbindung.',
+    text: 'Individuelle Weblösungen mit PHP, Laravel, MySQL, React, vue.js. Prozessautomatisierung und API-Anbindung.',
   },
   {
     title: 'Shop-Systeme',

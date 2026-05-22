@@ -107,7 +107,7 @@ import { useRoute } from 'vue-router';
 const route = useRoute();
 const slides = [
   {
-    bg: '/images/slides/meer-sofa-orange-banner.jpg',
+    bg: '/images/slides/meer-strand-liege-large.jpg',
     label: '[web]work oberland',
     title: 'Bleiben Sie ganz<br><span style="color:#fb923c">entspannt ...</span>',
     subtitle: 'Wir kümmern uns drum',
@@ -123,7 +123,7 @@ const slides = [
     cta: { label: 'Referenzen ansehen', href: '#portfolio' },
   },
   {
-    bg: '/images/slides/berge-sw.jpg',
+    bg: '/images/slides/berge-sw-large.jpg',
     label: 'Laravel · Vue.js · React · Shopify',
     title: 'Moderne Lösungen<br>für Ihr <span style="color:#fb923c">Business</span>',
     subtitle: 'Individuelle Webentwicklung mit langjähriger Erfahrung',
