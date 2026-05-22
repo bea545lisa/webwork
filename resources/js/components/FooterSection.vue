@@ -5,7 +5,7 @@
       <div class="mb-6 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
         <div>
           <p class="font-mono font-bold text-white text-xl mb-1">
-            <span class="text-[#fb923c]">[</span>web<span class="text-[#fb923c]">]</span>work oberland
+            <span class="text-[#fb923c]">[</span>web<span class="text-[#fb923c]">]</span>work
           </p>
           <p class="text-white/70 text-sm">Webideen für das Oberland</p>
         </div>

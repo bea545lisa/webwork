@@ -15,7 +15,7 @@
         <div>
           <h2 class="font-mono text-[#fb923c] text-xs uppercase tracking-widest mb-2">1. Verantwortlicher</h2>
           <p>Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br>
-          Beate Rohrmoser, [web]work oberland<br>
+          Beate Rohrmoser, [web]work<br>
           {{ email }}</p>
         </div>
 

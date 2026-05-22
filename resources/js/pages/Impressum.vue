@@ -14,7 +14,7 @@
 
         <div>
           <h2 class="font-mono text-[#fb923c] text-xs uppercase tracking-widest mb-2">Angaben gemäß § 5 TMG</h2>
-          <p>[web]work oberland<br>
+          <p>[web]work<br>
           Beate Rohrmoser<br>
           <!-- Adresse hier eintragen --><br>
           Dekan-Imminger-Str. 15<br>

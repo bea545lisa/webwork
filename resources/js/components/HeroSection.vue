@@ -109,7 +109,7 @@ const route = useRoute();
 const slides = [
   {
     bg: '/images/slides/meer-strand-liege-large.jpg',
-    label: '[web]work oberland',
+    label: '[web]work',
     title: 'Bleiben Sie ganz<br><span style="color:#fb923c">entspannt ...</span>',
     subtitle: 'Wir kümmern uns drum',
     direction: 'left',

@@ -14,14 +14,15 @@ Individuelle Webentwicklung im Raum München / Oberland.
 
 ## Features
 
-- Animierter Fullscreen-Slider mit Ken Burns Effekt
+- Animierter Fullscreen-Slider
 - Portfolio-Galerie mit Slide-In Detailseiten (Overlay-Animation)
-- Parallax-Sections mit KI-generierten Bildern (Adobe Firefly)
+- Parallax-Sections
 - Tech-Marquee mit SVG-Logos
 - Kontaktformular mit Honeypot-Spam-Schutz
 - Impressum & Datenschutz
 - Smooth-Scroll Navigation
 - Vollständig responsive
+- Bilder teilweise mit KI erstellt / überarbeitet (Gemini Banana, Adobe Firefly)
 
 ## Setup lokal
 
@@ -54,4 +55,4 @@ public/images/        # Bilder (Slider, Portfolio-Thumbnails, Screenshots)
 
 ---
 
-© 2026 [web]work oberland · Beate Rohrmoser
+© 2026 [web]work
