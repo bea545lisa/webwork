@@ -10,7 +10,7 @@ export const projects = [
     beschreibung: 'Kompletter Relaunch der eigenen Portfolio-Webseite. Migration von Joomla auf Laravel 12 mit Vue.js 3, Tailwind CSS v4 und Vite. Dark-Mode Design mit warmen Graubraun-Tönen und oranger Akzentfarbe. KI-generierte Slider-Bilder mit Adobe Firefly.',
     techs: ['Laravel', 'Vue.js 3', 'Tailwind CSS', 'Vite', 'PHP 8.4'],
     features: [
-      'Migration von Joomla auf Laravel + Vue.js SPA',
+      'Migration von Joomla auf Laravel + Vue.js',
       'Animierter Fullscreen-Slider',
       'Portfolio-Galerie mit Detailseiten',
       'Parallax-Sections',
