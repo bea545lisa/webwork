@@ -35,7 +35,7 @@ import FooterSection from '../components/FooterSection.vue';
 const router = useRouter();
 
 onMounted(async () => {
-  const savedY = router.currentRoute.value.meta.savedScrollY;
+  const savedY = router.currentRoute.value.meta?.['savedScrollY'];
   if (savedY) {
     await nextTick();
     setTimeout(() => {
