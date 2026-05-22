@@ -1,5 +1,5 @@
 <template>
-  <section class="py-16 bg-gray-50 overflow-hidden">
+  <section class="py-32 bg-gray-50 overflow-hidden">
     <div class="max-w-6xl mx-auto px-6 mb-10">
       <h2 class="text-3xl md:text-4xl font-bold text-[#475569]">Technologien</h2>
       <div class="h-[3px] w-12 bg-[#fb923c] mt-2"></div>

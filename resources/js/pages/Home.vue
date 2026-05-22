@@ -10,7 +10,7 @@
     <TechMarquee />
     <SloganSection
       text="Wir können den Wind nicht bestimmen, aber wir können die Segel richtig setzen."
-      bg="/images/slides/block-kite.jpg"
+      bg="/images/slides/block-kite-dark.jpg"
     />
     <PortfolioSection />
     <ContactSection />
