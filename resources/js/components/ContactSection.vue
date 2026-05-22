@@ -62,12 +62,16 @@
               class="w-full bg-white/10 border border-white/20 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-[#fb923c]/50 transition placeholder-white/40 resize-none text-sm"
               placeholder="Ihre Nachricht..."></textarea>
           </div>
-          <button type="submit"
-            class="w-full bg-[#fb923c] hover:bg-[#ea7c1e] text-white py-3 rounded-lg font-medium transition flex items-center justify-center gap-2">
-            Nachricht senden →
+          <button type="submit" :disabled="loading"
+            class="w-full bg-[#fb923c] hover:bg-[#ea7c1e] disabled:opacity-60 text-white py-3 rounded-lg font-medium transition flex items-center justify-center gap-2">
+            <span v-if="loading">Wird gesendet …</span>
+            <span v-else>Nachricht senden →</span>
           </button>
-          <p v-if="success" class="text-green-600 text-sm text-center font-mono">
+          <p v-if="success" class="text-green-400 text-sm text-center font-mono">
             ✓ Vielen Dank! Wir melden uns bald.
+          </p>
+          <p v-if="error" class="text-red-400 text-sm text-center font-mono">
+            ✗ Fehler beim Senden. Bitte versuche es erneut.
           </p>
         </form>
 
@@ -82,11 +86,37 @@ import { ref } from 'vue';
 const email = ['mail', 'webwork-oberland.de'].join('@');
 const form = ref({ name: '', email: '', message: '', honeypot: '' });
 const success = ref(false);
-
+const error = ref(false);
+const loading = ref(false);
 
 async function submitForm() {
-  if (form.value.honeypot) return; // Bot erkannt
-  success.value = true;
-  form.value = { name: '', email: '', message: '', honeypot: '' };
+  if (form.value.honeypot) return;
+  loading.value = true;
+  error.value = false;
+  success.value = false;
+
+  try {
+    const res = await fetch('/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        name: form.value.name,
+        email: form.value.email,
+        message: form.value.message,
+        honeypot: form.value.honeypot,
+      }),
+    });
+
+    if (res.ok) {
+      success.value = true;
+      form.value = { name: '', email: '', message: '', honeypot: '' };
+    } else {
+      error.value = true;
+    }
+  } catch (e) {
+    error.value = true;
+  } finally {
+    loading.value = false;
+  }
 }
 </script>
