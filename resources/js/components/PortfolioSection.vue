@@ -31,14 +31,14 @@
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         <RouterLink
           v-for="project in filteredProjects"
-          :key="project.id"
+          :key="project.slug"
           :to="`/portfolio/${project.slug}`"
           class="group relative overflow-hidden rounded-xl border border-white/5 hover:border-[#fb923c]/30 transition-all duration-300"
         >
           <img
             :src="project.thumb"
             :alt="project.title"
-            class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition duration-500 opacity-80 group-hover:opacity-100"
+            class="w-full aspect-[4/3] object-cover object-top group-hover:scale-105 transition duration-500 opacity-80 group-hover:opacity-100"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
             <div>

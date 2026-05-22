@@ -18,7 +18,15 @@ export const projects = [
       'Responsive Design für alle Geräte',
     ],
     thumb: '/images/referenzen/thumbnails/thumb-webwork-relaunch.jpg',
-    images: [],
+    images: [
+          '/images/referenzen/webwork-relaunch/webwork-slide1.png',
+          '/images/referenzen/webwork-relaunch/webwork-slide2.png',
+          '/images/referenzen/webwork-relaunch/webwork-slide3.png',
+          '/images/referenzen/webwork-relaunch/webwork-1.png',
+          '/images/referenzen/webwork-relaunch/webwork-2.png',
+          '/images/referenzen/webwork-relaunch/webwork-3.png',
+          '/images/referenzen/webwork-relaunch/webwork-4.png'
+    ],
   },
    {
     id: 5,
