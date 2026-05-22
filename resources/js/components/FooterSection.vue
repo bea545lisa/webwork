@@ -16,7 +16,7 @@
 
       <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
         <p class="text-white/60 text-xs font-mono">
-          © {{ year }} [web]work oberland · Beate Rohrmoser
+          © {{ year }} [web]work
         </p>
         <div class="flex gap-4 text-xs font-mono">
           <RouterLink to="/impressum" class="text-white/60 hover:text-[#fb923c] transition">Impressum</RouterLink>

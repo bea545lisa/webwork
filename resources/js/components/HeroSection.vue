@@ -9,12 +9,13 @@
         class="absolute inset-0 transition-opacity duration-1000"
         :class="currentSlide === index ? 'opacity-100 z-10' : 'opacity-0 z-0'"
       >
-        <!-- Hintergrundbild -->
-        <div
-          class="absolute inset-0 bg-cover bg-center scale-105 transition-transform duration-[8000ms]"
-          :class="currentSlide === index ? 'scale-100' : 'scale-105'"
-          :style="{ backgroundImage: `url(${slide.bg})` }"
-        ></div>
+        <!-- Hintergrundbild: äußeres Div für Scale-Animation, inneres für Parallax -->
+        <div class="absolute inset-0 transition-transform duration-[8000ms]"
+          :class="currentSlide === index ? 'scale-100' : 'scale-105'">
+          <div class="absolute inset-0 bg-cover bg-center"
+            :style="{ backgroundImage: `url(${slide.bg})`, transform: `translateY(${scrollY * 0.4}px)` }">
+          </div>
+        </div>
 
         <!-- Overlay -->
         <div class="absolute inset-0 bg-gradient-to-r from-black/50 via-black/25 to-black/10"></div>
@@ -134,7 +135,10 @@ const slides = [
 
 const durations = [6000, 6000, 10000]; // letzter Slide länger
 const currentSlide = ref(0);
+const scrollY = ref(0);
 let timer = null;
+
+function onScroll() { scrollY.value = window.scrollY; }
 
 function scheduleNext() {
   clearTimeout(timer);
@@ -157,8 +161,14 @@ function goTo(i) {
   scheduleNext();
 }
 
-onMounted(() => scheduleNext());
-onUnmounted(() => clearTimeout(timer));
+onMounted(() => {
+  scheduleNext();
+  window.addEventListener('scroll', onScroll, { passive: true });
+});
+onUnmounted(() => {
+  clearTimeout(timer);
+  window.removeEventListener('scroll', onScroll);
+});
 
 watch(() => route.name, (name) => {
   if (name === 'project-detail') {
