@@ -16,7 +16,7 @@
           <h2 class="font-mono text-[#fb923c] text-xs uppercase tracking-widest mb-2">1. Verantwortlicher</h2>
           <p>Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br>
           Beate Rohrmoser, [web]work oberland<br>
-          E-Mail: mail@webwork-oberland.de</p>
+          {{ email }}</p>
         </div>
 
         <div>
@@ -36,7 +36,7 @@
 
         <div>
           <h2 class="font-mono text-[#fb923c] text-xs uppercase tracking-widest mb-2">5. Ihre Rechte</h2>
-          <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer Daten sowie das Recht auf Datenübertragbarkeit. Wenden Sie sich dazu an: mail@webwork-oberland.de</p>
+          <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer Daten sowie das Recht auf Datenübertragbarkeit. Wenden Sie sich dazu an: {{ email }}</p>
         </div>
 
       </div>
@@ -47,4 +47,5 @@
 
 <script setup>
 import FooterSection from '../components/FooterSection.vue';
+const email = ['mail', 'webwork-oberland.de'].join('@');
 </script>

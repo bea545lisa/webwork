@@ -7,6 +7,7 @@
     <link rel="alternate icon" href="/favicon.ico">
     <title>webwork</title>
     <meta name="description" content="Webentwicklung im dem Raum München / Oberland. PHP, Laravel, Vue.js, React.">
+    <meta name="robots" content="noindex, nofollow">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>

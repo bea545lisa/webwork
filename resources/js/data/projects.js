@@ -6,7 +6,7 @@ export const projects = [
     subtitle: 'PHP, Laravel · Vue.js · Tailwind',
     category: 'web',
     zeitraum: '2026',
-    url: null,
+    url: 'www.webwork-oberland.de',
     beschreibung: 'Kompletter Relaunch der eigenen Portfolio-Webseite. Migration von Joomla auf Laravel 12 mit Vue.js 3, Tailwind CSS v4 und Vite. Dark-Mode Design mit warmen Graubraun-Tönen und oranger Akzentfarbe. KI-generierte Slider-Bilder mit Adobe Firefly.',
     techs: ['Laravel', 'Vue.js 3', 'Tailwind CSS', 'Vite', 'PHP 8.4'],
     features: [

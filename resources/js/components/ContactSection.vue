@@ -32,7 +32,7 @@
             </svg>
             <div>
               <p class="text-white/60 text-xs font-mono uppercase tracking-wider mb-1">E-Mail</p>
-              <a href="mailto:mail@webwork-oberland.de" class="text-white hover:text-[#fb923c] transition">mail@webwork-oberland.de</a>
+              <a :href="'mai'+'lto:'+email" class="text-white hover:text-[#fb923c] transition">{{ email }}</a>
             </div>
           </div>
 
@@ -79,6 +79,7 @@
 <script setup>
 import { ref } from 'vue';
 
+const email = ['mail', 'webwork-oberland.de'].join('@');
 const form = ref({ name: '', email: '', message: '', honeypot: '' });
 const success = ref(false);
 

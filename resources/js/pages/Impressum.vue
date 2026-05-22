@@ -23,8 +23,8 @@
 
         <div>
           <h2 class="font-mono text-[#fb923c] text-xs uppercase tracking-widest mb-2">Kontakt</h2>
-          <p>Telefon: 08024 4688225<br>
-          E-Mail: <a href="mailto:mail@webwork-oberland.de" class="hover:text-[#fb923c] transition">mail@webwork-oberland.de</a></p>
+          <p>08024 4688225<br>
+          <a :href="'mai'+'lto:'+email" class="hover:text-[#fb923c] transition">{{ email }}</a></p>
         </div>
 
         <div>
@@ -45,4 +45,5 @@
 
 <script setup>
 import FooterSection from '../components/FooterSection.vue';
+const email = ['mail', 'webwork-oberland.de'].join('@');
 </script>

@@ -9,8 +9,9 @@
     />
     <TechMarquee />
     <SloganSection
-      text="Wir können den Wind nicht bestimmen, aber wir können die Segel richtig setzen."
+      text="Man kann den Wind nicht ändern, aber die Segel richtig setzen."
       bg="/images/slides/block-kite-dark.jpg"
+      author="Aristoteles"
     />
     <PortfolioSection />
     <ContactSection />
