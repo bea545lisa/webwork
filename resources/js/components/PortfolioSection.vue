@@ -1,12 +1,12 @@
 <template>
-  <section id="portfolio" class="py-24 bg-[#e4e4e4]">
+  <section id="portfolio" class="py-24 bg-gray-50">
     <div class="max-w-6xl mx-auto px-6">
 
       <div class="mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-[#5e5854]">Referenzen</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-[#475569]">Referenzen</h2>
         <div class="flex items-center gap-4 mt-3">
           <div class="h-[3px] w-12 bg-[#fb923c]"></div>
-          <p class="text-[#5e5854]">Ausgewählte Projekte</p>
+          <p class="text-[#475569]">Ausgewählte Projekte</p>
         </div>
       </div>
 
@@ -15,38 +15,46 @@
         <button
           v-for="filter in filters"
           :key="filter.value"
-          @click="activeFilter = filter.value"
+          @click="setFilter(filter.value)"
           :class="[
             'px-4 py-2 rounded-full text-sm font-mono transition border',
             activeFilter === filter.value
               ? 'bg-[#fb923c] text-white border-[#fb923c]'
-              : 'border-[#5e5854]/30 text-[#5e5854] hover:border-[#fb923c]/40 hover:text-[#fb923c]'
+              : 'border-[#475569]/30 text-[#475569] hover:border-[#fb923c]/40 hover:text-[#fb923c]'
           ]"
         >
           {{ filter.label }}
         </button>
       </div>
 
-      <!-- Grid -->
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <RouterLink
-          v-for="project in filteredProjects"
+      <!-- Isotope-style Grid: alle Items immer im DOM, position:absolute -->
+      <div ref="containerRef" class="relative" :style="{ height: containerHeight + 'px', transition: 'height 0.5s ease' }">
+        <div
+          v-for="project in projects"
           :key="project.slug"
-          :to="`/portfolio/${project.slug}`"
-          class="group relative overflow-hidden rounded-xl border border-white/5 hover:border-[#fb923c]/30 transition-all duration-300"
+          class="absolute"
+          :style="itemStyle(project)"
         >
-          <img
-            :src="project.thumb"
-            :alt="project.title"
-            class="w-full aspect-[4/3] object-cover object-top group-hover:scale-105 transition duration-500 opacity-80 group-hover:opacity-100"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
-            <div>
-              <p class="text-white font-semibold text-sm">{{ project.title }}</p>
-              <p class="text-[#fb923c] text-xs font-mono">{{ project.subtitle }}</p>
+          <RouterLink
+            :to="`/portfolio/${project.slug}`"
+            class="group relative overflow-hidden rounded-xl border border-white/5 hover:border-[#fb923c]/30 transition-colors duration-300 block w-full h-full"
+          >
+            <div class="w-full h-full bg-gray-200">
+              <img
+                :src="project.thumb"
+                :alt="project.title"
+                class="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500 opacity-0 group-hover:opacity-100"
+                @load="e => e.target.classList.replace('opacity-0', 'opacity-80')"
+              />
             </div>
-          </div>
-        </RouterLink>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
+              <div>
+                <p class="text-white font-semibold text-sm">{{ project.title }}</p>
+                <p class="text-[#fb923c] text-xs font-mono">{{ project.subtitle }}</p>
+              </div>
+            </div>
+          </RouterLink>
+        </div>
       </div>
 
     </div>
@@ -54,10 +62,14 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, onMounted, onUnmounted, nextTick, watch } from 'vue';
 import { projects } from '../data/projects.js';
 
 const activeFilter = ref('all');
+const containerRef = ref(null);
+const itemPositions = ref({});
+const containerHeight = ref(0);
+const GAP = 16;
 
 const filters = [
   { label: 'Alle',      value: 'all',      type: 'category' },
@@ -74,12 +86,70 @@ const filters = [
   { label: 'Nicepage',  value: 'Nicepage', type: 'tech' },
 ];
 
-const filteredProjects = computed(() => {
-  if (activeFilter.value === 'all') return projects;
+function getColumns() {
+  const w = window.innerWidth;
+  if (w >= 1024) return 4;
+  if (w >= 768)  return 3;
+  return 2;
+}
+
+function matchesFilter(project) {
+  if (activeFilter.value === 'all') return true;
   const f = filters.find(f => f.value === activeFilter.value);
-  if (f?.type === 'tech') return projects.filter(p =>
-    p.techs.some(t => t.toLowerCase().includes(f.value.toLowerCase()))
-  );
-  return projects.filter(p => p.category === activeFilter.value);
+  if (f?.type === 'tech') return project.techs.some(t => t.toLowerCase().includes(f.value.toLowerCase()));
+  return project.category === activeFilter.value;
+}
+
+function calculatePositions() {
+  if (!containerRef.value) return;
+  const cols    = getColumns();
+  const total   = containerRef.value.offsetWidth;
+  const w       = (total - GAP * (cols - 1)) / cols;
+  const h       = w * (3 / 4);
+  const newPos  = {};
+  let col = 0, row = 0;
+
+  projects.forEach(p => {
+    if (matchesFilter(p)) {
+      newPos[p.slug] = { x: col * (w + GAP), y: row * (h + GAP), w, h, visible: true };
+      col++;
+      if (col >= cols) { col = 0; row++; }
+    } else {
+      newPos[p.slug] = { ...itemPositions.value[p.slug] ?? { x: 0, y: 0, w, h }, visible: false };
+    }
+  });
+
+  const rows = Math.ceil(projects.filter(p => matchesFilter(p)).length / cols);
+  containerHeight.value = rows > 0 ? rows * (h + GAP) - GAP : 0;
+  itemPositions.value = newPos;
+}
+
+function setFilter(value) {
+  activeFilter.value = value;
+}
+
+function itemStyle(project) {
+  const pos = itemPositions.value[project.slug];
+  if (!pos) return { opacity: 0 };
+  return {
+    width:     pos.w + 'px',
+    height:    pos.h + 'px',
+    transform: `translate(${pos.x}px, ${pos.y}px)`,
+    opacity:   pos.visible ? 1 : 0,
+    pointerEvents: pos.visible ? 'auto' : 'none',
+    transition: 'transform 0.5s ease, opacity 0.4s ease',
+    zIndex: pos.visible ? 1 : 0,
+  };
+}
+
+watch(activeFilter, () => nextTick(calculatePositions));
+
+onMounted(() => {
+  calculatePositions();
+  window.addEventListener('resize', calculatePositions);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('resize', calculatePositions);
 });
 </script>

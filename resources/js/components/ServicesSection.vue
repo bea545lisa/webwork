@@ -1,9 +1,9 @@
 <template>
-  <section id="angebot" class="py-24 bg-[#e4e4e4]">
+  <section id="angebot" class="py-24 bg-gray-50">
     <div class="max-w-6xl mx-auto px-6">
 
       <div class="mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-[#5e5854]">Unser Angebot</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-[#475569]">Unser Angebot</h2>
         <div class="flex items-center gap-4 mt-3">
           <div class="h-[3px] w-12 bg-[#fb923c]"></div>
           <p class="text-gray-500">Alles rund um Ihren Online-Auftritt</p>
@@ -14,13 +14,13 @@
         <div
           v-for="service in services"
           :key="service.title"
-          class="group p-6 bg-white border border-gray-200 rounded-xl hover:border-[#fb923c]/50 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col h-[260px]"
+          class="group p-6 bg-[#424a4d] rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.35)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.5)] transition-all duration-300 hover:-translate-y-1 flex flex-col h-[240px]"
         >
-          <div class="text-3xl mb-4">{{ service.icon }}</div>
-          <h3 class="font-bold text-[#5e5854] text-xl mb-2 group-hover:text-[#fb923c] transition">
+          <div class="text-3xl mb-4 grayscale opacity-70">{{ service.icon }}</div>
+          <h3 class="font-bold text-white text-xl mb-2 group-hover:text-[#fb923c] transition">
             {{ service.title }}
           </h3>
-          <p class="text-gray-500 text-base leading-relaxed">{{ service.text }}</p>
+          <p class="text-slate-200 text-sm leading-snug">{{ service.text }}</p>
         </div>
       </div>
 

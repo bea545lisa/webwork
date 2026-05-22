@@ -1,16 +1,16 @@
 <template>
-  <div class="bg-[#e8e4e0] min-h-screen flex flex-col">
+  <div class="bg-gray-50 min-h-screen flex flex-col">
     <div class="max-w-3xl mx-auto px-6 py-16 flex-1 w-full">
 
       <div class="mb-10">
-        <RouterLink to="/" class="text-[#5e5854] hover:text-[#fb923c] transition font-mono text-sm">
+        <RouterLink to="/" class="text-[#475569] hover:text-[#fb923c] transition font-mono text-sm">
           ← Zurück
         </RouterLink>
       </div>
 
-      <h1 class="text-3xl font-bold text-[#5e5854] mb-8">Datenschutzerklärung</h1>
+      <h1 class="text-3xl font-bold text-[#475569] mb-8">Datenschutzerklärung</h1>
 
-      <div class="space-y-6 text-[#5e5854] text-sm leading-relaxed">
+      <div class="space-y-6 text-[#475569] text-sm leading-relaxed">
 
         <div>
           <h2 class="font-mono text-[#fb923c] text-xs uppercase tracking-widest mb-2">1. Verantwortlicher</h2>

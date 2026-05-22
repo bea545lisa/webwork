@@ -1,18 +1,18 @@
 <template>
   <nav v-if="!isDetailPage"
     class="fixed top-0 w-full z-50 transition-all duration-300"
-    :class="scrolled ? 'bg-white/60 backdrop-blur-md border-b border-[#5e5854]/50 py-2' : 'bg-transparent border-b border-transparent py-4'"
+    :class="scrolled ? 'bg-black/40 backdrop-blur-md border-b border-white/30 py-2' : 'bg-transparent border-b border-transparent py-4'"
   >
     <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
 
       <RouterLink to="/" class="flex flex-col leading-tight group">
-        <span class="font-mono font-bold tracking-wider transition-all duration-300" :class="scrolled ? 'text-base text-[#1a1510]' : 'text-lg text-white'">
+        <span class="font-mono font-bold tracking-wider transition-all duration-300" :class="scrolled ? 'text-base text-white' : 'text-lg text-white'">
           <span class="text-[#fb923c]">[</span>web<span class="text-[#fb923c]">]</span>work
         </span>
         <span class="text-xs transition" :class="scrolled ? 'hidden' : 'text-gray-300'">Webideen für das Oberland</span>
       </RouterLink>
 
-      <ul class="hidden md:flex gap-8 text-sm font-medium" :class="scrolled ? 'text-[#1a1510]' : 'text-white'">
+      <ul class="hidden md:flex gap-8 text-sm font-medium" :class="scrolled ? 'text-white' : 'text-white'">
         <li v-for="item in navItems" :key="item.href">
           <a href="#" @click.prevent="scrollTo(item.href)"
             class="hover:text-[#fb923c] transition">

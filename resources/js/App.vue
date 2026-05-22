@@ -10,7 +10,7 @@
 
       <!-- Weicher Überblend-Overlay beim Zurücknavigieren -->
       <Transition name="fade-overlay">
-        <div v-if="showOverlay" class="fixed inset-0 z-30 bg-[#e4e4e4] pointer-events-none" />
+        <div v-if="showOverlay" class="fixed inset-0 z-30 bg-gray-50 pointer-events-none" />
       </Transition>
 
       <!-- Detailseite als Overlay -->
@@ -85,6 +85,6 @@ watch(isDetailPage, (val) => {
 .drawer-enter-active,
 .drawer-leave-active {
   overflow: hidden !important;
-  border-left: 3px solid #e4e4e4;
+  border-left: 3px solid #f1f5f9;
 }
 </style>
