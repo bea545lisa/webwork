@@ -15,7 +15,7 @@
         <img :src="'/images/foto.jpg'" alt="Beate Rohrmoser"
           class="w-40 h-40 rounded-full object-cover shrink-0 border-4 border-white" />
         <div class="text-center sm:text-left">
-          <p class="text-[#fb923c] font-mono text-lg tracking-wider mb-1">Hallo, ich bin</p>
+          <p class="text-[#fb923c] font-mono text-lg tracking-wider mb-1">Servus, ich bin</p>
           <h1 class="text-4xl font-bold text-[#475569] mb-1">Beate Rohrmoser</h1>
           <div class="h-[3px] w-12 bg-[#fb923c] mt-4 mx-auto sm:mx-0"></div>
         </div>
