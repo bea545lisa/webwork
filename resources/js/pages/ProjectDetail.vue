@@ -19,7 +19,7 @@
           <a v-if="project.url" :href="project.url" target="_blank"
             class="text-[#fb923c] hover:text-[#fb923c] transition">🔗 {{ project.url.includes('github.com') ? 'Git Repo' : 'Website ansehen' }}</a>
         </div>
-        <div class="h-[3px] w-16 bg-[#fb923c] mt-6"></div>
+        <div class="h-0.75 w-16 bg-[#fb923c] mt-6"></div>
       </div>
 
       <!-- 2-Spalten Layout -->
@@ -33,9 +33,9 @@
 
           <div v-if="project.features?.length">
             <h2 class="font-mono text-sm text-[#fb923c] uppercase tracking-widest mb-3">[ Features ]</h2>
-            <ul class="space-y-2">
+            <ul class="space-y-1">
               <li v-for="f in project.features" :key="f"
-                class="flex items-start gap-3 text-[#475569] text-sm">
+                class="flex items-start gap-3 text-[#475569] text-base">
                 <span class="text-[#fb923c] mt-0.5 font-mono">→</span>
                 {{ f }}
               </li>
@@ -76,7 +76,7 @@
             class="absolute top-4 right-6 text-white text-3xl hover:text-[#fb923c] transition">✕</button>
           <button v-if="lightboxIndex > 0" @click="lightboxIndex--"
             class="absolute left-4 text-white text-3xl hover:text-[#fb923c] transition px-4">‹</button>
-          <img :src="project.images[lightboxIndex]"
+          <img :src="project.images[lightboxIndex]" :alt="`${project.title} Vorschau`"
             class="max-w-full max-h-[85vh] rounded-xl shadow-2xl object-contain" />
           <button v-if="lightboxIndex < project.images.length - 1" @click="lightboxIndex++"
             class="absolute right-4 text-white text-3xl hover:text-[#fb923c] transition px-4">›</button>
@@ -131,7 +131,3 @@ function goBack() {
 }
 </script>
 
-<style scoped>
-.fade-enter-active, .fade-leave-active { transition: opacity 0.2s; }
-.fade-enter-from, .fade-leave-to { opacity: 0; }
-</style>

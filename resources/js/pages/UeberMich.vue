@@ -22,7 +22,7 @@
       </div>
 
       <!-- Bio -->
-      <div class="space-y-5 text-[#475569] leading-relaxed">
+      <div class="space-y-5 text-[#475569] leading-relaxed text-base md:text-lg">
         <p>
           Ich bin freiberufliche Webentwicklerin im Raum München und Oberland – mit einem klaren Fokus auf
           individuelle, moderne Weblösungen für Unternehmen und Selbständige.

@@ -20,7 +20,7 @@
           <h3 class="font-bold text-white text-xl mb-2 group-hover:text-[#fb923c] transition">
             {{ service.title }}
           </h3>
-          <p class="text-slate-200 text-sm leading-snug">{{ service.text }}</p>
+          <p class="text-slate-200 text-base leading-snug">{{ service.text }}</p>
         </div>
       </div>
 
