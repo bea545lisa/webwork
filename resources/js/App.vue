@@ -56,3 +56,31 @@ watch(isOverlayPage, (val) => {
 });
 </script>
 
+<style>
+.drawer-enter-active,
+.drawer-leave-active {
+  transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden !important;
+  border-left: 3px solid #f1f5f9;
+}
+.drawer-enter-from {
+  transform: translateX(100%);
+}
+.drawer-leave-to {
+  transform: translateX(-100%);
+}
+.drawer-enter-to,
+.drawer-leave-from {
+  transform: translateX(0%);
+}
+
+.fade-overlay-leave-active {
+  transition: opacity 0.5s ease;
+}
+.fade-overlay-leave-from { opacity: 1; }
+.fade-overlay-leave-to   { opacity: 0; }
+</style>
+
