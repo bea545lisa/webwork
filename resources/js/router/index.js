@@ -3,10 +3,12 @@ import Home from '../pages/Home.vue';
 import ProjectDetail from '../pages/ProjectDetail.vue';
 import Impressum from '../pages/Impressum.vue';
 import Datenschutz from '../pages/Datenschutz.vue';
+import UeberMich from '../pages/UeberMich.vue';
 
 const routes = [
   { path: '/', name: 'home', component: Home },
   { path: '/portfolio/:slug', name: 'project-detail', component: ProjectDetail },
+  { path: '/ueber-mich', name: 'ueber-mich', component: UeberMich },
   { path: '/impressum', name: 'impressum', component: Impressum },
   { path: '/datenschutz', name: 'datenschutz', component: Datenschutz },
 ];

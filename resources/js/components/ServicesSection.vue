@@ -3,7 +3,7 @@
     <div class="max-w-6xl mx-auto px-6">
 
       <div class="mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-[#475569]">Unser Angebot</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-[#475569]">Angebot</h2>
         <div class="flex items-center gap-4 mt-3">
           <div class="h-[3px] w-12 bg-[#fb923c]"></div>
           <p class="text-gray-500">Alles rund um Ihren Online-Auftritt</p>
@@ -48,7 +48,7 @@ const services = [
   {
     title: 'Re-Design',
     icon: '✨',
-    text: 'Ihre Webseite in die Jahre gekommen? Wir modernisieren Design und Technik, optimiert für alle Geräte.',
+    text: 'Ihre Webseite in die Jahre gekommen? Ich modernisiere Design und Technik, optimiert für alle Geräte.',
   },
   {
     title: 'App-Entwicklung',
@@ -68,7 +68,7 @@ const services = [
   {
     title: 'Beratung',
     icon: '💡',
-    text: 'Technologie-Beratung und Projekt-Begleitung. Wir helfen Ihnen, die richtige Lösung zu finden.',
+    text: 'Technologie-Beratung und Projekt-Begleitung. Ich helfe Ihnen, die richtige Lösung zu finden.',
   },
 ];
 </script>

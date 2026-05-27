@@ -19,6 +19,7 @@
           © {{ year }} [web]work
         </p>
         <div class="flex gap-4 text-xs font-mono">
+          <RouterLink to="/ueber-mich" class="text-white/60 hover:text-[#fb923c] transition">Über mich</RouterLink>
           <RouterLink to="/impressum" class="text-white/60 hover:text-[#fb923c] transition">Impressum</RouterLink>
           <RouterLink to="/datenschutz" class="text-white/60 hover:text-[#fb923c] transition">Datenschutz</RouterLink>
         </div>

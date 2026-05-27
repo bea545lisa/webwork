@@ -10,7 +10,7 @@
         :class="currentSlide === index ? 'opacity-100 z-10' : 'opacity-0 z-0'"
       >
         <!-- Hintergrundbild: äußeres Div für Scale-Animation, inneres für Parallax -->
-        <div class="absolute inset-0 transition-transform duration-[8000ms]"
+        <div class="absolute inset-0 transition-transform duration-8000"
           :class="currentSlide === index ? 'scale-100' : 'scale-105'">
           <div class="absolute inset-0 bg-cover bg-center"
             :style="{ backgroundImage: `url(${slide.bg})`, transform: `translateY(${scrollY * 0.4}px)` }">
@@ -18,8 +18,8 @@
         </div>
 
         <!-- Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-r from-black/50 via-black/25 to-black/10"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+        <div class="absolute inset-0 bg-linear-to-r from-black/50 via-black/25 to-black/10"></div>
+        <div class="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent"></div>
 
         <!-- Text Content -->
         <div class="relative z-10 flex flex-col justify-center h-full px-10 md:px-24 max-w-5xl">
@@ -36,7 +36,7 @@
 
           <!-- Headline -->
           <div
-            class="transition-all duration-700 delay-[350ms]"
+            class="transition-all duration-700 delay-350"
             :class="currentSlide === index ? 'opacity-100 translate-x-0' : slide.direction === 'left' ? 'opacity-0 -translate-x-24' : 'opacity-0 translate-x-24'"
           >
             <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-4"
@@ -70,7 +70,7 @@
     <!-- Dots -->
     <div class="absolute bottom-10 left-10 md:left-24 flex gap-3 z-20">
       <button
-        v-for="(slide, index) in slides"
+        v-for="(index) in slides"
         :key="index"
         @click="goTo(index)"
         :class="[
@@ -94,7 +94,7 @@
 
     <!-- Scroll Indicator -->
     <div class="absolute bottom-10 right-10 md:right-24 flex flex-col items-center gap-2 z-20">
-      <div class="w-px h-12 bg-gradient-to-b from-[#fb923c]/50 to-transparent"></div>
+      <div class="w-px h-12 bg-linear-to-b from-[#fb923c]/50 to-transparent"></div>
       <span class="text-gray-500 text-xs font-mono tracking-widest -rotate-90 mt-2">SCROLL</span>
     </div>
 
@@ -111,14 +111,14 @@ const slides = [
     bg: '/images/slides/meer-strand-liege-large.jpg',
     label: '[web]work',
     title: 'Bleiben Sie ganz<br><span style="color:#fb923c">entspannt ...</span>',
-    subtitle: 'Wir kümmern uns drum',
+    subtitle: 'Ich kümmere mich drum',
     direction: 'left',
-    cta: { label: 'Unser Angebot', href: '#angebot' },
+    cta: { label: 'Mein Angebot', href: '#angebot' },
   },
   {
     bg: '/images/slides/birne-sw-farbe1.jpg',
     label: 'Webentwicklung · Raum München / Oberland',
-    title: 'Wir bringen Ihre Website<br>ins <span style="color:#fb923c">richtige Licht</span>',
+    title: 'Ich bringe Ihre Website<br>ins <span style="color:#fb923c">richtige Licht</span>',
     subtitle: 'Laravel · Vue.js · React · Shopify',
     direction: 'right',
     cta: { label: 'Referenzen ansehen', href: '#portfolio' },

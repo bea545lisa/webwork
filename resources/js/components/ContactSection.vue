@@ -7,10 +7,10 @@
         <!-- Linke Spalte: Überschrift + Kontaktinfos -->
         <div class="space-y-6">
           <div>
-            <h2 class="text-3xl md:text-4xl font-bold text-white">Schreiben Sie uns</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-white">Schreiben Sie mir</h2>
             <div class="flex items-center gap-4 mt-3 mb-12">
               <div class="h-[3px] w-12 bg-[#fb923c]"></div>
-              <p class="text-white">Wir freuen uns auf Ihre Anfrage</p>
+              <p class="text-white">Ich freue mich auf Ihre Anfrage</p>
             </div>
           </div>
 
@@ -68,7 +68,7 @@
             <span v-else>Nachricht senden →</span>
           </button>
           <p v-if="success" class="text-green-400 text-sm text-center font-mono">
-            ✓ Vielen Dank! Wir melden uns bald.
+            ✓ Vielen Dank! Ich melde mich bald.
           </p>
           <p v-if="error" class="text-red-400 text-sm text-center font-mono">
             ✗ Fehler beim Senden. Bitte versuche es erneut.

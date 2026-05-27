@@ -13,10 +13,10 @@
         <div v-if="showOverlay" class="fixed inset-0 z-30 bg-gray-50 pointer-events-none" />
       </Transition>
 
-      <!-- Detailseite als Overlay -->
+      <!-- Detailseite / Über mich als Overlay -->
       <Transition name="drawer">
-        <div v-if="isDetailPage" class="fixed inset-0 z-40 overflow-y-auto detail-overlay">
-          <ProjectDetail />
+        <div v-if="isOverlayPage" class="fixed inset-0 z-40 overflow-y-auto detail-overlay">
+          <RouterView />
         </div>
       </Transition>
     </template>
@@ -27,15 +27,14 @@
 import { computed, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import Home from './pages/Home.vue';
-import ProjectDetail from './pages/ProjectDetail.vue';
 
 const route = useRoute();
-const isDetailPage = computed(() => route.name === 'project-detail');
+const isOverlayPage = computed(() => ['project-detail', 'ueber-mich'].includes(route.name));
 const isStaticPage = computed(() => ['impressum', 'datenschutz'].includes(route.name));
 const showOverlay = ref(false);
 let savedScrollY = 0;
 
-watch(isDetailPage, (val) => {
+watch(isOverlayPage, (val) => {
   if (val) {
     // Detailseite öffnet: Scroll-Position merken, Body einfrieren
     savedScrollY = window.scrollY;
@@ -57,34 +56,3 @@ watch(isDetailPage, (val) => {
 });
 </script>
 
-<style>
-.drawer-enter-active,
-.drawer-leave-active {
-  transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-.drawer-enter-from {
-  transform: translateX(100%);
-}
-.drawer-leave-to {
-  transform: translateX(-100%);
-}
-.drawer-enter-to,
-.drawer-leave-from {
-  transform: translateX(0%);
-}
-
-.fade-overlay-leave-active {
-  transition: opacity 0.5s ease;
-}
-.fade-overlay-leave-from { opacity: 1; }
-.fade-overlay-leave-to   { opacity: 0; }
-
-.drawer-enter-active,
-.drawer-leave-active {
-  overflow: hidden !important;
-  border-left: 3px solid #f1f5f9;
-}
-</style>

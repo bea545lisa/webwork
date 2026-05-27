@@ -31,7 +31,7 @@ import { useRoute } from 'vue-router';
 
 const scrolled = ref(false);
 const route = useRoute();
-const isDetailPage = computed(() => route.name === 'project-detail');
+const isDetailPage = computed(() => ['project-detail', 'ueber-mich'].includes(route.name));
 
 const navItems = [
   { href: '#angebot',   label: 'Angebot' },
