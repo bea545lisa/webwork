@@ -26,12 +26,21 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { ref, computed, watch, onMounted, onUnmounted } from 'vue';
 import { useRoute } from 'vue-router';
 
 const scrolled = ref(false);
 const route = useRoute();
-const isDetailPage = computed(() => ['project-detail', 'ueber-mich'].includes(route.name));
+const isOverlay = computed(() => ['project-detail', 'ueber-mich'].includes(route.name));
+const isDetailPage = ref(isOverlay.value);
+
+watch(isOverlay, (val) => {
+  if (val) {
+    isDetailPage.value = true;
+  } else {
+    setTimeout(() => { isDetailPage.value = false; }, 850);
+  }
+});
 
 const navItems = [
   { href: '#angebot',   label: 'Angebot' },
