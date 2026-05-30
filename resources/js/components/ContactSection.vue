@@ -44,17 +44,19 @@
           <div style="display:none">
             <input v-model="form.honeypot" type="text" tabindex="-1" autocomplete="off" />
           </div>
-          <div>
-            <label class="block text-xs font-mono text-white uppercase tracking-wider mb-1">Name</label>
-            <input v-model="form.name" type="text" required
-              class="w-full bg-white/10 border border-white/20 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-[#fb923c]/50 transition placeholder-white/40 text-sm"
-              placeholder="Ihr Name" />
-          </div>
-          <div>
-            <label class="block text-xs font-mono text-white uppercase tracking-wider mb-1">E-Mail</label>
-            <input v-model="form.email" type="email" required
-              class="w-full bg-white/10 border border-white/20 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-[#fb923c]/50 transition placeholder-white/40 text-sm"
-              placeholder="ihre@email.de" />
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-mono text-white uppercase tracking-wider mb-1">Name</label>
+              <input v-model="form.name" type="text" required
+                class="w-full bg-white/10 border border-white/20 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-[#fb923c]/50 transition placeholder-white/40 text-sm"
+                placeholder="Ihr Name" />
+            </div>
+            <div>
+              <label class="block text-xs font-mono text-white uppercase tracking-wider mb-1">E-Mail</label>
+              <input v-model="form.email" type="email" required
+                class="w-full bg-white/10 border border-white/20 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-[#fb923c]/50 transition placeholder-white/40 text-sm"
+                placeholder="ihre@email.de" />
+            </div>
           </div>
           <div>
             <label class="block text-xs font-mono text-white uppercase tracking-wider mb-1">Nachricht</label>

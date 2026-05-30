@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMail;
+use App\Mail\ContactConfirmMail;
 
 class ContactController extends Controller
 {
@@ -23,8 +24,12 @@ class ContactController extends Controller
         }
 
         try {
+            // Mail an Beate
             Mail::to(config('mail.from.address'))
                 ->send(new ContactMail($validated));
+            // Bestätigung an Kunden
+            Mail::to($validated['email'])
+                ->send(new ContactConfirmMail($validated));
         } catch (\Exception $e) {
             Log::error('Kontaktformular Mail-Fehler: ' . $e->getMessage());
             return response()->json(['success' => false, 'message' => 'Mail konnte nicht gesendet werden.'], 500);
