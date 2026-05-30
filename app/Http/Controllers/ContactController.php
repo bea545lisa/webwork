@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMail;
 
@@ -21,8 +22,13 @@ class ContactController extends Controller
             return response()->json(['success' => true]);
         }
 
-        Mail::to(config('mail.from.address'))
-            ->send(new ContactMail($validated));
+        try {
+            Mail::to(config('mail.from.address'))
+                ->send(new ContactMail($validated));
+        } catch (\Exception $e) {
+            Log::error('Kontaktformular Mail-Fehler: ' . $e->getMessage());
+            return response()->json(['success' => false, 'message' => 'Mail konnte nicht gesendet werden.'], 500);
+        }
 
         return response()->json(['success' => true]);
     }
