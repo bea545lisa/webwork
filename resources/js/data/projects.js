@@ -36,11 +36,11 @@ export const projects = [
     category: 'web',
     zeitraum: '2022',
     url: 'https://bealisa.com',
-    beschreibung: 'Private Homepage – Konzeption, Design und Umsetzung. Originalfotografie, mit KI und Photoshop bearbeitet.',
+    beschreibung: 'Private Homepage – Konzeption, Design und Umsetzung. Originalfotografie mit KI und Photoshop verändert.',
     techs: ['Vue 3', 'Vite', 'Tailwind CSS v4'],
     features: [],
     thumb: '/images/referenzen/thumbnails/thumb-bealisa.jpg',
-    images: ['/images/referenzen/bealisa/home.jpg'],
+    images: ['/images/referenzen/bealisa/home.jpg', '/images/referenzen/bealisa/home-mobile.jpg'],
   },
   {
     id: 5,
