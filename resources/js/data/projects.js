@@ -28,7 +28,21 @@ export const projects = [
           '/images/referenzen/webwork-relaunch/webwork-4.png'
     ],
   },
-   {
+  {
+    id: 6,
+    slug: 'bealisa',
+    title: 'RAMIREZ',
+    subtitle: 'Private Homepage',
+    category: 'web',
+    zeitraum: '2022',
+    url: 'https://bealisa.com',
+    beschreibung: 'Private Homepage – Konzeption, Design und Umsetzung. Originalfotografie, mit KI und Photoshop bearbeitet.',
+    techs: ['Vue 3', 'Vite', 'Tailwind CSS v4'],
+    features: [],
+    thumb: '/images/referenzen/thumbnails/thumb-bealisa.jpg',
+    images: ['/images/referenzen/bealisa/home.jpg'],
+  },
+  {
     id: 5,
     slug: 'rexpaw-admin',
     title: 'RexPaw Admin',
