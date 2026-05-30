@@ -34,7 +34,7 @@ export const projects = [
     title: 'bealisa.com',
     subtitle: 'Private Homepage',
     category: 'web',
-    zeitraum: '2022',
+    zeitraum: '2026',
     url: 'https://bealisa.com',
     beschreibung: 'Private Homepage – Konzeption, Design und Umsetzung. Originalfotografie mit KI und Photoshop verändert.',
     techs: ['Vue.js', 'Vite', 'Tailwind'],
