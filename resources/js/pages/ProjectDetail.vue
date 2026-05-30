@@ -57,12 +57,12 @@
       <!-- Bildergalerie -->
       <div v-if="project.images.length > 0">
         <h2 class="font-mono text-sm text-[#fb923c] uppercase tracking-widest mb-6">[ Screenshots ]</h2>
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        <div :class="project.imageFit === 'contain' ? 'flex flex-wrap gap-3' : 'grid grid-cols-2 md:grid-cols-3 gap-3'">
           <div v-for="(img, index) in project.images" :key="index"
-            class="overflow-hidden rounded-xl border border-[#475569]/20 cursor-zoom-in hover:border-[#fb923c]/50 transition"
+            class="rounded-xl border border-[#475569]/20 cursor-zoom-in hover:border-[#fb923c]/50 transition overflow-hidden"
             @click="openLightbox(index)">
             <img :src="img" :alt="`${project.title} ${index + 1}`"
-              :class="['w-full opacity-90 hover:opacity-100 transition', project.imageFit === 'contain' ? 'h-auto object-contain' : 'h-56 object-cover']" />
+              :class="['opacity-90 hover:opacity-100 transition', project.imageFit === 'contain' ? 'h-56 w-auto' : 'w-full h-56 object-cover']" />
           </div>
         </div>
       </div>
