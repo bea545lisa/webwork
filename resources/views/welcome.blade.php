@@ -11,7 +11,6 @@
     <meta name="theme-color" content="#585e60" media="(prefers-color-scheme: dark)">
     <meta name="msapplication-navbutton-color" content="#585e60">
     <meta name="msapplication-TileColor" content="#585e60">
-    <meta name="robots" content="noindex, nofollow">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>

@@ -31,6 +31,18 @@ const router = createRouter({
   },
 });
 
+router.afterEach((to) => {
+  const noindex = ['impressum', 'datenschutz', 'ueber-mich'];
+  const content = noindex.includes(to.name) ? 'noindex, nofollow' : 'index, follow';
+  let tag = document.querySelector('meta[name="robots"]');
+  if (!tag) {
+    tag = document.createElement('meta');
+    tag.setAttribute('name', 'robots');
+    document.head.appendChild(tag);
+  }
+  tag.setAttribute('content', content);
+});
+
 // Scroll-Position vor dem Verlassen der Seite speichern
 router.beforeEach((to, from) => {
   if (from.name) {
