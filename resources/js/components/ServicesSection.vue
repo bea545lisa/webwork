@@ -10,11 +10,11 @@
         </div>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
         <div
           v-for="service in services"
           :key="service.title"
-          class="group p-6 bg-[#424a4d] rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.35)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.5)] transition-all duration-300 hover:-translate-y-1 flex flex-col h-[240px]"
+          class="group p-6 bg-[#424a4d] rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.35)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.5)] transition-all duration-300 hover:-translate-y-1 flex flex-col h-[300px]"
         >
           <div class="text-3xl mb-4 grayscale opacity-70">{{ service.icon }}</div>
           <h3 class="font-bold text-white text-xl mb-2 group-hover:text-[#fb923c] transition">
@@ -31,44 +31,34 @@
 <script setup>
 const services = [
   {
-    title: 'Webdesign',
-    icon: '🎨',
-    text: 'Von der One-Page bis zur umfangreichen Business-Lösung. Responsive Design für alle Bildschirmgrößen inklusive.',
+    title: 'Webseiten-Pflege & Support',
+    icon: '🛡️',
+    text: 'Sie nutzen WordPress, Jimdo oder einen Baukasten, aber die Technik nervt oder kostet zu viel Zeit? Ob regelmäßige Wartung, sichere Backups, neue Inhalte oder schnelle Soforthilfe: Ich halte Ihnen im Hintergrund den Rücken frei.',
   },
   {
-    title: 'Webentwicklung',
-    icon: '⚙️',
-    text: 'Individuelle Weblösungen mit PHP, Laravel, MySQL, React, vue.js. Prozessautomatisierung und API-Anbindung.',
-  },
-  {
-    title: 'Shop-Systeme',
+    title: 'Onlineshops & Shopify',
     icon: '🛒',
-    text: 'E-Commerce Lösungen und individuelle Shopify-Apps mit GraphQL API nach Ihren Anforderungen.',
+    text: 'Vom ersten Setup bis zur laufenden Optimierung – ich realisiere Ihren E-Commerce-Auftritt mit Shopify oder dem passenden System, begleite Sie beim Wechsel und entwickle maßgeschneiderte Erweiterungen.',
   },
   {
-    title: 'Re-Design',
-    icon: '✨',
-    text: 'Ihre Webseite in die Jahre gekommen? Ich modernisiere Design und Technik, optimiert für alle Geräte.',
+    title: 'Webdesign & Re-Design',
+    icon: '🎨',
+    text: 'Ist Ihre Webseite in die Jahre gekommen? Ich modernisiere Design sowie Technik, optimiere die Ladezeiten und mache Ihren Auftritt fit für alle Endgeräte. Moderne Suchmaschinenoptimierung (SEO) sorgt für ein starkes Google-Ranking.',
   },
   {
-    title: 'App-Entwicklung',
-    icon: '📱',
-    text: 'Mobile Anwendungen mit React und Vue.js. Anbindung an bestehende Datenbanken und APIs.',
+    title: 'Individuelle Webentwicklung',
+    icon: '⚙️',
+    text: 'Maßgeschneiderte Web- und Mobile-Anwendungen mit PHP, Laravel, MySQL, React und Vue.js. Prozessautomatisierung, API-Anbindungen und individuelle Schnittstellenentwicklung.',
   },
   {
-    title: 'Shopify Apps',
-    icon: '🔧',
-    text: 'Individuelle Shopify Admin-Apps und Erweiterungen. Entwicklung mit Polaris, React Router und GraphQL.',
-  },
-  {
-    title: 'Layout & Design',
+    title: 'Layout & Corporate Design',
     icon: '🖊️',
-    text: 'Corporate Design vom Logo bis zur Druckvorlage. Briefpapier, Flyer und visuelle Kommunikation.',
+    text: 'Visuelle Kommunikation vom Logo bis zur Druckvorlage. Ich gestalte Ihr Briefpapier, Flyer, Visitenkarten und Broschüren für einen rundum professionellen Auftritt.',
   },
   {
-    title: 'Beratung',
+    title: 'Beratung & Projektbegleitung',
     icon: '💡',
-    text: 'Technologie-Beratung und Projekt-Begleitung. Ich helfe Ihnen, die richtige Lösung zu finden.',
+    text: 'Unabhängige Technologie-Beratung auf Augenhöhe. Ich helfe Ihnen, die passenden Systeme auszuwählen, bestehende Infrastrukturen zu analysieren und Ihre digitale Vision sicher umzusetzen.',
   },
 ];
 </script>
