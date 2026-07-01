@@ -1,2 +1,6 @@
 User-agent: *
-Disallow:
+Disallow: /impressum
+Disallow: /datenschutz
+Disallow: /ueber-mich
+
+Sitemap: https://webwork-oberland.de/sitemap.xml

@@ -5,8 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="alternate icon" href="/favicon.ico">
-    <title>webwork</title>
-    <meta name="description" content="Webentwicklung im dem Raum München / Oberland. PHP, Laravel, Vue.js, React.">
+    <title>webwork Oberland – Webentwicklung & Design</title>
+    <meta name="description" content="Webseiten, Onlineshops und individuelle Webanwendungen für kleine Unternehmen im Oberland. Schnell, modern und auf Ihre Bedürfnisse zugeschnitten.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://webwork-oberland.de">
+    <meta property="og:title" content="webwork Oberland – Webentwicklung & Design">
+    <meta property="og:description" content="Webseiten, Onlineshops und individuelle Webanwendungen für kleine Unternehmen im Oberland. Schnell, modern und auf Ihre Bedürfnisse zugeschnitten.">
+    <meta property="og:image" content="https://webwork-oberland.de/og-image.jpg">
     <meta name="theme-color" content="#585e60" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#585e60" media="(prefers-color-scheme: dark)">
     <meta name="msapplication-navbutton-color" content="#585e60">
