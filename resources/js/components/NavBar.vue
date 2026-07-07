@@ -31,7 +31,7 @@ import { useRoute } from 'vue-router';
 
 const scrolled = ref(false);
 const route = useRoute();
-const isOverlay = computed(() => ['project-detail', 'ueber-mich'].includes(route.name));
+const isOverlay = computed(() => ['project-detail', 'ueber-mich', 'handwerk-basic'].includes(route.name));
 const isDetailPage = ref(isOverlay.value);
 
 watch(isOverlay, (val) => {

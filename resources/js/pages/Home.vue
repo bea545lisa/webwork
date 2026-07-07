@@ -3,6 +3,8 @@
     <NavBar />
     <HeroSection />
     <ServicesSection />
+    <HandwerkSpecialSection />
+    <HandwerkAddonsSection />
     <SloganSection
       text="Nichts ist mächtiger als eine Idee, deren Zeit gekommen ist."
       author="Victor Hugo"
@@ -26,6 +28,8 @@ import { useRouter } from 'vue-router';
 import NavBar from '../components/NavBar.vue';
 import HeroSection from '../components/HeroSection.vue';
 import ServicesSection from '../components/ServicesSection.vue';
+import HandwerkSpecialSection from '../components/HandwerkSpecialSection.vue';
+import HandwerkAddonsSection from '../components/HandwerkAddonsSection.vue';
 import SloganSection from '../components/SloganSection.vue';
 import TechMarquee from '../components/TechMarquee.vue';
 import PortfolioSection from '../components/PortfolioSection.vue';

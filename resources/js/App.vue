@@ -29,7 +29,7 @@ import { useRoute } from 'vue-router';
 import Home from './pages/Home.vue';
 
 const route = useRoute();
-const isOverlayPage = computed(() => ['project-detail', 'ueber-mich'].includes(route.name));
+const isOverlayPage = computed(() => ['project-detail', 'ueber-mich', 'handwerk-basic'].includes(route.name));
 const isStaticPage = computed(() => ['impressum', 'datenschutz'].includes(route.name));
 const showOverlay = ref(false);
 let savedScrollY = 0;
