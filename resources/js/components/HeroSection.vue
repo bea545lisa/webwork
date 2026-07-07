@@ -135,7 +135,7 @@ const slides = [
     bg: '/images/slides/holz-blumen-orange.jpg',
     label: 'Branchen-Spezial',
     title: 'Ihr Handwerk verdient<br>eine <span style="color:#fb923c">starke Webseite</span>',
-    subtitle: 'Moderne Handwerker-Website zum Festpreis – inklusive Schnellbewerbung',
+    subtitle: 'Moderne Internetseite für Handwerker zum Festpreis – inklusive Schnellbewerbung',
     direction: 'right',
     cta: { label: 'Handwerk Spezial ansehen', href: '#handwerk-spezial' },
   },
