@@ -69,6 +69,10 @@
             <span v-if="loading">Wird gesendet …</span>
             <span v-else>Nachricht senden →</span>
           </button>
+          <p class="text-white/60 text-xs text-center">
+            Bitte beachten Sie vor Absenden des Formulars unsere
+            <a href="/datenschutz" target="_blank" rel="noopener" class="underline hover:text-[#fb923c] transition">Datenschutzerklärung</a>.
+          </p>
           <p v-if="success" class="text-green-400 text-sm text-center font-mono">
             ✓ Vielen Dank! Ich melde mich bald.
           </p>

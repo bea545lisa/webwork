@@ -35,8 +35,8 @@
             <h3 class="text-2xl font-bold text-[#475569]">Paket „Digitale Werkstatt“</h3>
           </div>
           <div class="sm:text-right">
-            <p class="text-2xl font-bold text-[#475569]">ab 950 €</p>
-            <p class="text-gray-400 text-xs">zzgl. MwSt.</p>
+            <p class="text-gray-500 text-sm">Festpreis</p>
+            <p class="text-2xl font-bold text-[#475569]">950 €*</p>
           </div>
         </div>
 
@@ -56,6 +56,10 @@
             Was genau ist enthalten? Details ansehen →
           </RouterLink>
         </div>
+
+        <p class="text-gray-400 text-xs mt-4">
+          * zzgl. 19% MwSt.
+        </p>
       </div>
 
     </div>

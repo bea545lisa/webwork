@@ -70,7 +70,7 @@
     <!-- Dots -->
     <div class="absolute bottom-10 left-10 md:left-24 flex gap-3 z-20">
       <button
-        v-for="(index) in slides"
+        v-for="(slide, index) in slides"
         :key="index"
         @click="goTo(index)"
         :class="[
@@ -131,9 +131,17 @@ const slides = [
     direction: 'left',
     cta: { label: 'Kontakt aufnehmen', href: '#contact' },
   },
+  {
+    bg: '/images/slides/holz-blumen-orange.jpg',
+    label: 'Branchen-Spezial',
+    title: 'Ihr Handwerk verdient<br>eine <span style="color:#fb923c">starke Webseite</span>',
+    subtitle: 'Moderne Handwerker-Website zum Festpreis – inklusive Schnellbewerbung',
+    direction: 'right',
+    cta: { label: 'Handwerk Spezial ansehen', href: '#handwerk-spezial' },
+  },
 ];
 
-const durations = [6000, 6000, 10000]; // letzter Slide länger
+const durations = [6000, 6000, 10000, 8000]; // letzter Standard-Slide länger
 const currentSlide = ref(0);
 const scrollY = ref(0);
 let timer = null;

@@ -18,8 +18,8 @@
           <div class="h-[3px] w-12 bg-[#fb923c] mt-4"></div>
         </div>
         <div class="text-left sm:text-right">
-          <p class="text-2xl font-bold text-[#475569]">ab 950 €</p>
-          <p class="text-gray-400 text-sm">zzgl. MwSt.</p>
+          <p class="text-gray-400 text-sm">Festpreis</p>
+          <p class="text-2xl font-bold text-[#475569]">950 €*</p>
         </div>
       </div>
 
@@ -71,6 +71,10 @@
           Unverbindlich anfragen
         </RouterLink>
       </div>
+
+      <p class="text-gray-400 text-xs mt-4">
+        * zzgl. 19% MwSt.
+      </p>
 
     </div>
   </div>
