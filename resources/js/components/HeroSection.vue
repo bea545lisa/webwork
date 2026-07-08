@@ -132,7 +132,7 @@ const slides = [
     cta: { label: 'Kontakt aufnehmen', href: '#contact' },
   },
   {
-    bg: '/images/slides/holz-blumen-orange.jpg',
+    bg: '/images/slides/handwerker.jpg',
     label: 'Branchen-Spezial',
     title: 'Ihr Handwerk verdient<br>eine <span style="color:#fb923c">starke Webseite</span>',
     subtitle: 'Moderne Internetseite für Handwerker zum Festpreis – inklusive Schnellbewerbung',

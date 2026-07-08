@@ -58,7 +58,7 @@
         </div>
 
         <p class="text-gray-400 text-xs mt-4">
-          * zzgl. 19% MwSt.
+          * zzgl. 19% MwSt. Festpreis gilt für den hier gezeigten Leistungsumfang – individuelle Anpassungen auf Anfrage.
         </p>
       </div>
 
@@ -87,8 +87,8 @@ const features = [
 
 const included = [
   'Individual-Design in Ihren Farben',
-  'Startseite mit Leistungen & Galerie',
-  'Extrem schnelle mobile Ladezeiten',
+  'Onepage-Webseite mit mehreren Abschnitten',
+  'Schnelle Ladezeiten auf allen Geräten',
   'Rechtssicher (DSGVO & Impressum)',
 ];
 </script>

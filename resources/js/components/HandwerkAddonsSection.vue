@@ -6,11 +6,11 @@
         <h2 class="text-3xl md:text-4xl font-bold text-[#475569]">Erweitern Sie Ihre Seite nach Bedarf</h2>
         <div class="flex items-center gap-4 mt-3">
           <div class="h-[3px] w-12 bg-[#fb923c]"></div>
-          <p class="text-gray-500">Optionale Zusatzbausteine für Ihre Handwerker-Website</p>
+          <p class="text-gray-500">Optionale Premium-Zusatzbausteine für Ihre Handwerker-Website</p>
         </div>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
         <div
           v-for="addon in addons"
           :key="addon.title"
@@ -25,6 +25,12 @@
             <span class="font-bold text-[#475569]">{{ addon.price }}</span>
           </div>
         </div>
+      </div>
+
+      <div class="text-center mb-8">
+        <RouterLink to="/handwerk-basic" class="text-[#fb923c] font-medium hover:text-[#ea7c1e] transition">
+          Mehr Erweiterungen →
+        </RouterLink>
       </div>
 
       <div class="flex flex-col sm:flex-row justify-center gap-4">
@@ -54,21 +60,21 @@ defineProps({ bg: String });
 const addons = [
   {
     icon: '📍',
-    title: 'Google Maps Anbindung',
-    text: 'Interaktive Karte für die Anfahrt zur Werkstatt.',
-    price: '+90 €',
+    title: 'Google Maps',
+    text: 'Interaktive Karte für die Anfahrt zur Werkstatt – damit Kunden Sie leicht finden.',
+    price: '+100 €',
   },
   {
     icon: '📸',
-    title: 'Premium-Banner',
-    text: 'Großer Eyecatcher ganz oben auf der Startseite.',
+    title: 'Fullsize-Banner',
+    text: 'Großer Eyecatcher ganz oben auf der Startseite – mit wechselnden Hintergrundbildern.',
     price: '+150 €',
   },
   {
-    icon: '💼',
-    title: 'Digitales Kundenportal',
-    text: 'Eigene Datenbank zur Verwaltung aller Anfragen.',
-    price: 'Auf Anfrage',
+    icon: '🎙️',
+    title: 'Sorglos-Content',
+    text: 'Kurzes Interview mit Ihnen – ich generiere professionelle Texte und Bilder.',
+    price: '+250 €',
   },
 ];
 </script>

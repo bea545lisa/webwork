@@ -14,7 +14,7 @@
       </Transition>
 
       <!-- Detailseite / Über mich als Overlay -->
-      <Transition name="drawer">
+      <Transition name="drawer" :duration="1000">
         <div v-if="isOverlayPage" class="fixed inset-0 z-40 overflow-y-auto detail-overlay">
           <RouterView />
         </div>
@@ -57,6 +57,15 @@ watch(isOverlayPage, (val) => {
 </script>
 
 <style>
+/* Eigene Scrollbar des Overlays ausblenden, damit die max-w-Zentrierung
+   nicht durch deren Breite von der Nav (viewport-fix, ohne Scrollbar) abweicht. */
+.detail-overlay {
+  scrollbar-width: none;
+}
+.detail-overlay::-webkit-scrollbar {
+  display: none;
+}
+
 .drawer-enter-active,
 .drawer-leave-active {
   transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);

@@ -1,6 +1,6 @@
 <template>
   <div class="bg-gray-50 min-h-screen flex flex-col">
-    <div class="max-w-3xl mx-auto px-6 py-16 flex-1 w-full">
+    <div class="max-w-6xl mx-auto px-6 pt-28 pb-16 flex-1 w-full">
 
       <!-- Zurück -->
       <div class="mb-12">
@@ -41,7 +41,7 @@
       <!-- Enthalten -->
       <div class="mb-12">
         <h2 class="text-xl font-bold text-[#475569] mb-4">Das ist enthalten</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <p v-for="item in included" :key="item" class="text-[#475569] text-sm flex items-start gap-2">
             <span class="text-[#fb923c] font-bold">✓</span> {{ item }}
           </p>
@@ -51,11 +51,14 @@
       <!-- Erweiterungen -->
       <div class="mb-12">
         <h2 class="text-xl font-bold text-[#475569] mb-4">Optionale Erweiterungen</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div v-for="addon in addons" :key="addon.title"
-            class="flex items-center justify-between bg-white rounded-lg px-4 py-3 shadow-sm">
-            <span class="text-[#475569] text-sm">{{ addon.icon }} {{ addon.title }}</span>
-            <span class="font-bold text-[#475569] text-sm shrink-0 ml-3">{{ addon.price }}</span>
+            class="bg-white rounded-lg p-4 shadow-sm">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-[#475569] font-bold text-sm">{{ addon.icon }} {{ addon.title }}</span>
+              <span class="font-bold text-[#475569] text-sm shrink-0 ml-3">{{ addon.price }}</span>
+            </div>
+            <p class="text-gray-500 text-sm">{{ addon.text }}</p>
           </div>
         </div>
       </div>
@@ -73,7 +76,7 @@
       </div>
 
       <p class="text-gray-400 text-xs mt-4">
-        * zzgl. 19% MwSt.
+        * zzgl. 19% MwSt. Festpreis gilt für den hier gezeigten Leistungsumfang – individuelle Anpassungen auf Anfrage.
       </p>
 
     </div>
@@ -91,14 +94,49 @@ function goBack() {
 
 const included = [
   'Individual-Design in Ihren Farben',
-  'Startseite mit Leistungen & Galerie',
-  'Extrem schnelle mobile Ladezeiten',
+  'Onepage-Webseite mit mehreren Abschnitten',
+  'Schnelle Ladezeiten auf allen Geräten',
+  'Bild- und Textmaterial wird vom Kunden geliefert',
   'Rechtssicher (DSGVO & Impressum)',
+  'Bis zu 9 Referenzprojekte & 6 Kundenstimmen',
 ];
 
 const addons = [
-  { icon: '📍', title: 'Google Maps Anbindung', price: '+90 €' },
-  { icon: '📸', title: 'Premium-Banner', price: '+150 €' },
-  { icon: '💼', title: 'Digitales Kundenportal', price: 'Auf Anfrage' },
+  {
+    icon: '📍',
+    title: 'Google Maps',
+    text: 'Interaktive Karte für die Anfahrt zur Werkstatt – damit Kunden Sie leicht finden.',
+    price: '+100 €',
+  },
+  {
+    icon: '📸',
+    title: 'Fullsize-Banner',
+    text: 'Großer Eyecatcher ganz oben auf der Startseite – mit wechselnden Hintergrundbildern.',
+    price: '+150 €',
+  },
+  {
+    icon: '🖼️',
+    title: 'Galerie Pro',
+    text: 'Ihre besten Projekte in einer filterbaren Bildergalerie – zum Stöbern für Ihre Kunden.',
+    price: '+300 €',
+  },
+  {
+    icon: '🎙️',
+    title: 'Sorglos-Content',
+    text: 'Kurzes Interview mit Ihnen – ich generiere professionelle Texte und Bilder.',
+    price: '+250 €',
+  },
+  {
+    icon: '📋',
+    title: 'Bewerbung Pro',
+    text: 'Mehrere offene Stellen, zusätzliche Fragen und Datei-Upload für Lebenslauf & Zeugnisse.',
+    price: '+200 €',
+  },
+  {
+    icon: '💼',
+    title: 'Digitales Kundenportal',
+    text: 'Inhalte selbst pflegen und Anfragen an einem Ort verwalten – ganz ohne Programmierkenntnisse.',
+    price: 'Auf Anfrage',
+  },
 ];
 </script>
