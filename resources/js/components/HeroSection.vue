@@ -18,8 +18,8 @@
         </div>
 
         <!-- Overlay -->
-        <div class="absolute inset-0 bg-linear-to-r from-black/50 via-black/25 to-black/10"></div>
-        <div class="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent"></div>
+        <div class="absolute inset-0 bg-linear-to-r from-[#00000080] via-[#00000040] to-[#0000001a]"></div>
+        <div class="absolute inset-0 bg-linear-to-t from-[#00000066] via-transparent to-transparent"></div>
 
         <!-- Text Content -->
         <div class="relative z-10 flex flex-col justify-center h-full px-10 md:px-24 max-w-5xl">
@@ -29,7 +29,7 @@
             class="transition-all duration-700 delay-200"
             :class="currentSlide === index ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-16'"
           >
-            <span class="inline-block border border-[#fb923c]/50 text-[#fb923c] text-xs font-mono px-3 py-1 rounded-full tracking-widest uppercase mb-6">
+            <span class="inline-block border border-[#fb923c80] text-[#fb923c] text-xs font-mono px-3 py-1 rounded-full tracking-widest uppercase mb-6">
               {{ slide.label }}
             </span>
           </div>
@@ -77,14 +77,14 @@
           'transition-all duration-300 rounded-full',
           currentSlide === index
             ? 'w-8 h-2 bg-[#fb923c]'
-            : 'w-2 h-2 bg-white/30 hover:bg-white/60'
+            : 'w-2 h-2 bg-[#ffffff4d] hover:bg-[#ffffff99]'
         ]"
       />
     </div>
 
     <!-- Pfeile -->
     <button @click="prev"
-      class="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center border border-white/20 hover:border-[#fb923c]/50 text-white/60 hover:text-[#fb923c] text-2xl transition rounded-full">
+      class="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center border border-[#ffffff33] hover:border-[#fb923c80] text-[#ffffff99] hover:text-[#fb923c] text-2xl transition rounded-full">
       &#8249;
     </button>
     <button @click="next"
@@ -94,7 +94,7 @@
 
     <!-- Scroll Indicator -->
     <div class="absolute bottom-10 right-10 md:right-24 flex flex-col items-center gap-2 z-20">
-      <div class="w-px h-12 bg-linear-to-b from-[#fb923c]/50 to-transparent"></div>
+      <div class="w-px h-12 bg-linear-to-b from-[#fb923c80] to-transparent"></div>
       <span class="text-gray-500 text-xs font-mono tracking-widest -rotate-90 mt-2">SCROLL</span>
     </div>
 

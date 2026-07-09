@@ -50,7 +50,7 @@
 
       <!-- Erweiterungen -->
       <div class="mb-12">
-        <h2 class="text-xl font-bold text-[#475569] mb-4">Optionale Erweiterungen</h2>
+        <h2 class="text-xl font-bold text-[#475569] mb-4">Optionale Pro-Erweiterungen</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div v-for="addon in addons" :key="addon.title"
             class="bg-white rounded-lg p-4 shadow-sm">
@@ -76,7 +76,7 @@
       </div>
 
       <p class="text-gray-400 text-xs mt-4">
-        * zzgl. 19% MwSt. Festpreis gilt für den hier gezeigten Leistungsumfang – individuelle Anpassungen auf Anfrage.
+        * zzgl. 19% MwSt. Festpreis gilt für den gezeigten Leistungsumfang der Basic-Version – individuelle Anpassungen auf Anfrage.
       </p>
 
     </div>
@@ -96,6 +96,7 @@ const included = [
   'Individual-Design in Ihren Farben',
   'Onepage-Webseite mit mehreren Abschnitten',
   'Schnelle Ladezeiten auf allen Geräten',
+  'SEO-optimiert für Suchmaschinen',
   'Bild- und Textmaterial wird vom Kunden geliefert',
   'Rechtssicher (DSGVO & Impressum)',
   'Bis zu 9 Referenzprojekte & 6 Kundenstimmen',
@@ -104,13 +105,13 @@ const included = [
 const addons = [
   {
     icon: '📍',
-    title: 'Google Maps',
+    title: 'Google Maps Pro',
     text: 'Interaktive Karte für die Anfahrt zur Werkstatt – damit Kunden Sie leicht finden.',
     price: '+100 €',
   },
   {
     icon: '📸',
-    title: 'Fullsize-Banner',
+    title: 'Fullsize-Banner Pro',
     text: 'Großer Eyecatcher ganz oben auf der Startseite – mit wechselnden Hintergrundbildern.',
     price: '+150 €',
   },
@@ -129,13 +130,19 @@ const addons = [
   {
     icon: '📋',
     title: 'Bewerbung Pro',
-    text: 'Mehrere offene Stellen, zusätzliche Fragen und Datei-Upload für Lebenslauf & Zeugnisse.',
+    text: 'Selbst definierte offene Stellen, zusätzliche Fragen und Datei-Upload für Lebenslauf & Zeugnisse.',
     price: '+200 €',
   },
   {
     icon: '💼',
     title: 'Digitales Kundenportal',
     text: 'Inhalte selbst pflegen und Anfragen an einem Ort verwalten – ganz ohne Programmierkenntnisse.',
+    price: 'Auf Anfrage',
+  },
+  {
+    icon: '✏️',
+    title: 'Text- & Bildänderungen',
+    text: 'Spätere Anpassungen an Texten oder Bildern nach dem Launch – einmalig abgerechnet, wenn sie anfallen.',
     price: 'Auf Anfrage',
   },
 ];

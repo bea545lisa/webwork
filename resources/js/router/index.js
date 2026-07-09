@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import { isDirectHandwerkVisit } from './directVisit.js';
 import Home from '../pages/Home.vue';
 import ProjectDetail from '../pages/ProjectDetail.vue';
 import Impressum from '../pages/Impressum.vue';
@@ -43,6 +44,13 @@ router.afterEach((to) => {
     document.head.appendChild(tag);
   }
   tag.setAttribute('content', content);
+});
+
+// Direktaufruf erkennen: die allererste Navigation hat noch keine "from"-Route.
+router.beforeEach((to, from) => {
+  if (from.matched.length === 0 && to.name === 'handwerk-basic') {
+    isDirectHandwerkVisit.value = true;
+  }
 });
 
 // Scroll-Position vor dem Verlassen der Seite speichern

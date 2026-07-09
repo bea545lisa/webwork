@@ -35,9 +35,25 @@
             <h3 class="text-2xl font-bold text-[#475569]">Paket „Digitale Werkstatt“</h3>
           </div>
           <div class="sm:text-right">
-            <p class="text-gray-500 text-sm">Festpreis</p>
             <p class="text-2xl font-bold text-[#475569]">950 €*</p>
           </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 mb-6">
+          <a
+            href="https://handwerk-basic.webwork-oberland.de/"
+            target="_blank"
+            rel="noopener"
+            class="text-center bg-[#fb923c] hover:bg-[#ea7c1e] text-white px-8 py-3 rounded-lg font-medium transition"
+          >
+            Muster-Website ansehen →
+          </a>
+          <RouterLink
+            to="/#contact"
+            class="text-center border border-[#475569]/30 text-[#475569] hover:border-[#fb923c]/40 hover:text-[#fb923c] px-8 py-3 rounded-lg font-medium transition"
+          >
+            Unverbindlich anfragen
+          </RouterLink>
         </div>
 
         <div class="h-px bg-gray-200 mb-6"></div>
@@ -58,7 +74,7 @@
         </div>
 
         <p class="text-gray-400 text-xs mt-4">
-          * zzgl. 19% MwSt. Festpreis gilt für den hier gezeigten Leistungsumfang – individuelle Anpassungen auf Anfrage.
+          * zzgl. 19% MwSt. Festpreis gilt für den gezeigten Leistungsumfang der Basic-Version – individuelle Anpassungen auf Anfrage.
         </p>
       </div>
 
@@ -89,6 +105,8 @@ const included = [
   'Individual-Design in Ihren Farben',
   'Onepage-Webseite mit mehreren Abschnitten',
   'Schnelle Ladezeiten auf allen Geräten',
+  'SEO-optimiert für Suchmaschinen',
   'Rechtssicher (DSGVO & Impressum)',
+  'Festpreis, keine versteckten Kosten',
 ];
 </script>

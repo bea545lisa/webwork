@@ -1,56 +1,57 @@
 <template>
-  <nav v-if="!isDetailPage"
-    class="fixed top-0 w-full z-50 transition-all duration-1000"
-    :class="scrolled
-      ? (isLightPage ? 'bg-[#ffffffe6] backdrop-blur-md border-b border-gray-200 py-2' : 'bg-[#00000066] backdrop-blur-md border-b border-[#ffffff4d] py-2')
-      : 'bg-transparent border-b border-transparent py-4'"
-  >
-    <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
+  <Transition name="navfade" :duration="400">
+    <nav v-if="!isDetailPage"
+      class="fixed top-0 w-full z-50 transition-all duration-1000"
+      :class="scrolled
+        ? (isLightPage ? 'bg-[#ffffffe6] backdrop-blur-md border-b border-gray-200 py-2' : 'bg-[#00000066] backdrop-blur-md border-b border-[#ffffff4d] py-2')
+        : 'bg-transparent border-b border-transparent py-4'"
+    >
+      <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
 
-      <RouterLink to="/" class="flex flex-col leading-tight group">
-        <span class="font-mono font-bold tracking-wider transition-all duration-1000"
-          :class="[scrolled ? 'text-base' : 'text-lg', isLightPage ? 'text-[#475569]' : 'text-white']">
-          <span class="text-[#fb923c]">[</span>web<span class="text-[#fb923c]">]</span>work
-        </span>
-        <span class="text-xs transition" :class="scrolled ? 'hidden' : (isLightPage ? 'text-gray-500' : 'text-gray-300')">Webideen für das Oberland</span>
-      </RouterLink>
+        <RouterLink to="/" class="flex flex-col leading-tight group">
+          <span class="font-mono font-bold tracking-wider transition-all duration-1000"
+            :class="[scrolled ? 'text-base' : 'text-lg', isLightPage ? 'text-[#475569]' : 'text-white']">
+            <span class="text-[#fb923c]">[</span>web<span class="text-[#fb923c]">]</span>work
+          </span>
+          <span class="text-xs overflow-hidden transition-all duration-1000"
+            :class="[scrolled ? 'max-h-0 opacity-0' : 'max-h-5 opacity-100', isLightPage ? 'text-gray-500' : 'text-gray-300']">Webideen für das Oberland</span>
+        </RouterLink>
 
-      <ul class="hidden md:flex gap-8 text-sm font-medium" :class="isLightPage ? 'text-[#475569]' : 'text-white'">
-        <li v-for="item in navItems" :key="item.href">
-          <RouterLink v-if="isLightPage" :to="'/' + item.href" class="hover:text-[#fb923c] transition">
-            {{ item.label }}
-          </RouterLink>
-          <a v-else href="#" @click.prevent="scrollTo(item.href)"
-            class="hover:text-[#fb923c] transition">
-            {{ item.label }}
-          </a>
-        </li>
-      </ul>
+        <ul class="hidden md:flex gap-8 text-sm font-medium" :class="isLightPage ? 'text-[#475569]' : 'text-white'">
+          <li v-for="item in navItems" :key="item.href">
+            <RouterLink v-if="isLightPage" :to="'/' + item.href" class="hover:text-[#fb923c] transition">
+              {{ item.label }}
+            </RouterLink>
+            <a v-else href="#" @click.prevent="scrollTo(item.href)"
+              class="hover:text-[#fb923c] transition">
+              {{ item.label }}
+            </a>
+          </li>
+        </ul>
 
-    </div>
-  </nav>
+      </div>
+    </nav>
+  </Transition>
 </template>
 
 <script setup>
 import { ref, computed, watch, onMounted, onUnmounted, nextTick } from 'vue';
 import { useRoute } from 'vue-router';
+import { isDirectHandwerkVisit } from '../router/directVisit.js';
 
 const scrolled = ref(false);
 const route = useRoute();
-const isOverlay = computed(() => ['project-detail', 'ueber-mich'].includes(route.name));
+// /handwerk-basic verhält sich wie project-detail/ueber-mich (Menü versteckt),
+// AUSSER es wurde direkt aufgerufen (z.B. via Google) – dann bleibt das Menü sichtbar.
+const isOverlay = computed(() =>
+  ['project-detail', 'ueber-mich'].includes(route.name) ||
+  (route.name === 'handwerk-basic' && !isDirectHandwerkVisit.value)
+);
 const isLightPage = computed(() => route.name !== 'home');
-// Ausblenden passiert sofort mit der Route (kein Tick Verzögerung, sonst
-// überlagert das Menü kurz den einfahrenden Drawer). Das Wieder-Einblenden
-// beim Schließen bleibt verzögert, damit es nicht vor der Schließ-Animation aufblitzt.
-const isClosing = ref(false);
-const isDetailPage = computed(() => isOverlay.value || isClosing.value);
-
-watch(isOverlay, (val) => {
-  if (!val) {
-    isClosing.value = true;
-    setTimeout(() => { isClosing.value = false; }, 850);
-  }
-});
+// Ein-/Ausblenden reagiert sofort auf die Route (kein künstliches Delay mehr,
+// das sich z.B. nach Klick auf den Zurück-Button träge angefühlt hat).
+// Der sanfte Übergang läuft stattdessen über die navfade-Transition unten.
+const isDetailPage = computed(() => isOverlay.value);
 
 const navItems = [
   { href: '#angebot',   label: 'Angebot' },
@@ -101,3 +102,14 @@ watch(() => route.name, async () => {
   attachScrollListener();
 });
 </script>
+
+<style scoped>
+.navfade-enter-active,
+.navfade-leave-active {
+  transition: opacity 0.4s ease;
+}
+.navfade-enter-from,
+.navfade-leave-to {
+  opacity: 0;
+}
+</style>
