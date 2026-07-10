@@ -18,7 +18,6 @@
           <div class="h-[3px] w-12 bg-[#fb923c] mt-4"></div>
         </div>
         <div class="text-left sm:text-right">
-          <p class="text-gray-400 text-sm">Festpreis</p>
           <p class="text-2xl font-bold text-[#475569]">950 €*</p>
         </div>
       </div>
