@@ -17,7 +17,7 @@ class ContactConfirmMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Ihre Anfrage bei '.$this->data['name'],
+            subject: 'Ihre Anfrage bei [web]work',
         );
     }
 

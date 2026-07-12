@@ -49,7 +49,10 @@
 
       <!-- Erweiterungen -->
       <div class="mb-12">
-        <h2 class="text-xl font-bold text-[#475569] mb-4">Optionale Pro-Erweiterungen</h2>
+        <h2 class="text-xl font-bold text-[#475569] mb-1">Optionale Pro-Erweiterungen</h2>
+        <p class="text-gray-500 text-sm mb-4">
+          Manche Pro-Erweiterungen lassen sich auf der Muster-Webseite per Umschalter live zwischen Basic und Pro vergleichen.
+        </p>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div v-for="addon in addons" :key="addon.title"
             class="bg-white rounded-lg p-4 shadow-sm">
@@ -119,6 +122,12 @@ const addons = [
     title: 'Galerie Pro',
     text: 'Ihre besten Projekte in einer filterbaren Bildergalerie – zum Stöbern für Ihre Kunden.',
     price: '+300 €',
+  },
+  {
+    icon: '👥',
+    title: 'Team Pro',
+    text: 'Eigener Abschnitt mit Foto, Name und Rolle je Mitarbeiter – schafft Vertrauen und persönliche Nähe.',
+    price: '+150 €',
   },
   {
     icon: '🎙️',

@@ -29,7 +29,7 @@
             class="transition-all duration-700 delay-200"
             :class="currentSlide === index ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-16'"
           >
-            <span class="inline-block border border-[#fb923c80] text-[#fb923c] text-xs font-mono px-3 py-1 rounded-full tracking-widest uppercase mb-6">
+            <span class="inline-block border border-[#fb923c80] text-[#fdba74] [text-shadow:0_1px_3px_rgba(0,0,0,0.7)] text-xs font-mono px-3 py-1 rounded-full tracking-widest uppercase mb-6">
               {{ slide.label }}
             </span>
           </div>
@@ -109,7 +109,7 @@ const route = useRoute();
 const slides = [
   {
     bg: '/images/slides/meer-strand-liege-large.jpg',
-    label: '[web]work',
+    label: 'Full-Service Webentwicklung · Holzkirchen',
     title: 'Bleiben Sie ganz<br><span style="color:#fb923c">entspannt ...</span>',
     subtitle: 'Ich kümmere mich drum',
     direction: 'left',
@@ -117,7 +117,7 @@ const slides = [
   },
   {
     bg: '/images/slides/birne-sw-farbe1.jpg',
-    label: 'Webentwicklung · Raum München / Oberland',
+    label: 'Webagentur · Raum München · Oberland',
     title: 'Ich bringe Ihre Website<br>ins <span style="color:#fb923c">richtige Licht</span>',
     subtitle: 'Laravel · Vue.js · React · Shopify',
     direction: 'right',
@@ -133,7 +133,7 @@ const slides = [
   },
   {
     bg: '/images/slides/handwerker.jpg',
-    label: 'Branchen-Spezial',
+    label: 'Branchen-Spezial · Handwerksbetriebe',
     title: 'Ihr Handwerk verdient<br>eine <span style="color:#fb923c">starke Webseite</span>',
     subtitle: 'Moderne Internetseite für Handwerker zum Festpreis – inklusive Schnellbewerbung',
     direction: 'right',

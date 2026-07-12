@@ -58,7 +58,7 @@
 
         <div class="h-px bg-gray-200 mb-6"></div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+        <div class="grid grid-cols-1 sm:grid-cols-[3fr_2fr] gap-3 mb-6">
           <p v-for="item in included" :key="item" class="text-[#475569] text-sm flex items-start gap-2">
             <span class="text-[#fb923c] font-bold">✓</span> {{ item }}
           </p>
