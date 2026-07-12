@@ -22,14 +22,14 @@
         <div class="absolute inset-0 bg-linear-to-t from-[#00000066] via-transparent to-transparent"></div>
 
         <!-- Text Content -->
-        <div class="relative z-10 flex flex-col justify-center h-full px-10 md:px-24 max-w-5xl">
+        <div class="relative z-10 flex flex-col justify-start pt-[210px] md:justify-center md:pt-0 h-full px-6 md:px-24 max-w-5xl">
 
           <!-- Label -->
           <div
             class="transition-all duration-700 delay-200"
             :class="currentSlide === index ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-16'"
           >
-            <span class="inline-block border border-[#fb923c80] text-[#fdba74] [text-shadow:0_1px_3px_rgba(0,0,0,0.7)] text-xs font-mono px-3 py-1 rounded-full tracking-widest uppercase mb-6">
+            <span class="inline-block border border-[#fb923c80] bg-black/10 [backdrop-filter:blur(1.5px)] text-[#fb923c] text-xs font-mono px-3 py-1 rounded-full tracking-widest uppercase mb-6">
               {{ slide.label }}
             </span>
           </div>
@@ -84,11 +84,11 @@
 
     <!-- Pfeile -->
     <button @click="prev"
-      class="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center border border-[#ffffff33] hover:border-[#fb923c80] text-[#ffffff99] hover:text-[#fb923c] text-2xl transition rounded-full">
+      class="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 items-center justify-center border border-[#ffffff33] hover:border-[#fb923c80] text-[#ffffff99] hover:text-[#fb923c] text-2xl transition rounded-full">
       &#8249;
     </button>
     <button @click="next"
-      class="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center border border-white/20 hover:border-[#fb923c]/50 text-white/60 hover:text-[#fb923c] text-2xl transition rounded-full">
+      class="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 items-center justify-center border border-white/20 hover:border-[#fb923c]/50 text-white/60 hover:text-[#fb923c] text-2xl transition rounded-full">
       &#8250;
     </button>
 
@@ -119,7 +119,7 @@ const slides = [
     bg: '/images/slides/birne-sw-farbe1.jpg',
     label: 'Webagentur · Raum München · Oberland',
     title: 'Ich bringe Ihre Website<br>ins <span style="color:#fb923c">richtige Licht</span>',
-    subtitle: 'Laravel · Vue.js · React · Shopify',
+    subtitle: 'Modernes Design, saubere Technik',
     direction: 'right',
     cta: { label: 'Referenzen ansehen', href: '#portfolio' },
   },
@@ -135,7 +135,7 @@ const slides = [
     bg: '/images/slides/handwerker.jpg',
     label: 'Branchen-Spezial · Handwerksbetriebe',
     title: 'Ihr Handwerk verdient<br>eine <span style="color:#fb923c">starke Webseite</span>',
-    subtitle: 'Moderne Internetseite für Handwerker zum Festpreis – inklusive Schnellbewerbung',
+    subtitle: 'Für Handwerker zum Festpreis – inklusive Schnellbewerbung',
     direction: 'right',
     cta: { label: 'Handwerk Spezial ansehen', href: '#handwerk-spezial' },
   },

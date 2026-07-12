@@ -50,7 +50,7 @@
       <!-- Erweiterungen -->
       <div class="mb-12">
         <h2 class="text-xl font-bold text-[#475569] mb-1">Optionale Pro-Erweiterungen</h2>
-        <p class="text-gray-500 text-sm mb-4">
+        <p class="text-gray-500 text-sm mb-8">
           Manche Pro-Erweiterungen lassen sich auf der Muster-Webseite per Umschalter live zwischen Basic und Pro vergleichen.
         </p>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
