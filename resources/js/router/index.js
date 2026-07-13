@@ -37,14 +37,47 @@ const router = createRouter({
 router.afterEach((to) => {
   const noindex = ['impressum', 'datenschutz', 'ueber-mich'];
   const content = noindex.includes(to.name) ? 'noindex, nofollow' : 'index, follow';
-  let tag = document.querySelector('meta[name="robots"]');
+  setMeta('meta[name="robots"]', 'name', 'robots', content);
+  applyPageMeta(to);
+});
+
+// Setzt/erstellt ein <meta>- oder <link>-Tag über einen CSS-Selektor.
+function setMeta(selector, attrName, attrValue, content, contentAttr = 'content') {
+  let tag = document.querySelector(selector);
   if (!tag) {
-    tag = document.createElement('meta');
-    tag.setAttribute('name', 'robots');
+    tag = document.createElement(selector.startsWith('link') ? 'link' : 'meta');
+    tag.setAttribute(attrName, attrValue);
     document.head.appendChild(tag);
   }
-  tag.setAttribute('content', content);
-});
+  tag.setAttribute(contentAttr, content);
+}
+
+// Titel/Description/Canonical je Route: ohne das ist der HTML-<head> für jede
+// URL identisch (SPA liefert überall dieselbe welcome.blade.php) – Google
+// wertet das als Duplicate Content und indiziert Unterseiten dann oft nicht.
+const pageMeta = {
+  home: {
+    title: 'webwork Oberland – Webentwicklung & Design',
+    description:
+      'Webseiten, Onlineshops und individuelle Webanwendungen für kleine Unternehmen im Oberland. Schnell, modern und auf Ihre Bedürfnisse zugeschnitten.',
+  },
+  'handwerk-basic': {
+    title: 'Handwerk Spezial „Digitale Werkstatt“ – Webseite für Handwerksbetriebe zum Festpreis | webwork Oberland',
+    description:
+      'Moderne Onepage-Website für Handwerksbetriebe zum Festpreis: schnell online, mobil optimiert, inklusive Schnellbewerbung. Live-Demo und optionale Pro-Erweiterungen ansehen.',
+  },
+};
+
+function applyPageMeta(to) {
+  const meta = pageMeta[to.name] || pageMeta.home;
+  document.title = meta.title;
+  setMeta('meta[name="description"]', 'name', 'description', meta.description);
+  setMeta('meta[property="og:title"]', 'property', 'og:title', meta.title);
+  setMeta('meta[property="og:description"]', 'property', 'og:description', meta.description);
+  const canonicalUrl = 'https://webwork-oberland.de' + (to.path === '/' ? '' : to.path);
+  setMeta('meta[property="og:url"]', 'property', 'og:url', canonicalUrl);
+  setMeta('link[rel="canonical"]', 'rel', 'canonical', canonicalUrl, 'href');
+}
 
 // Direktaufruf erkennen: die allererste Navigation hat noch keine "from"-Route.
 router.beforeEach((to, from) => {
