@@ -10,6 +10,18 @@
     RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
     RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
 
+    # Alte Joomla-Artikel-URLs (index.php?option=com_content...): 410 Gone statt 200,
+    # damit Google sie aus dem Index nimmt. Läuft hier statt in Laravel selbst, weil
+    # Laravel den Skriptnamen "index.php" schon vor dem Routing aus dem Pfad entfernt.
+    RewriteCond %{QUERY_STRING} (^|&)option=com_content [NC]
+    RewriteRule ^ - [G,L]
+
+    # index.php ohne Joomla-Parameter (z.B. reines "/index.php"): 301 auf die
+    # Startseite, da inhaltlich identisch - vermeidet eine zweite indexierbare URL.
+    RewriteCond %{THE_REQUEST} \s/index\.php[?\s]
+    RewriteCond %{QUERY_STRING} !option=com_content
+    RewriteRule ^index\.php$ / [R=301,L]
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
