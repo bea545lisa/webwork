@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="alternate icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <title>webwork Oberland – Webentwicklung & Design</title>
     <meta name="description" content="Webseiten, Onlineshops und individuelle Webanwendungen für kleine Unternehmen im Oberland. Schnell, modern und auf Ihre Bedürfnisse zugeschnitten.">
     <meta property="og:type" content="website">
