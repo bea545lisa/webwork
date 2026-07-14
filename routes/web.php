@@ -13,9 +13,9 @@ Route::get('/component/tags/{any}', function () {
 })->where('any', '.*');
 
 // Laravel entfernt "index.php" schon vor dem Routing aus dem Pfad (Skriptname),
-// daher landen auch /index.php-Aufrufe hier im Catch-all - Query-String separat prüfen.
+// daher landen auch alle /index.php-Aufrufe (alte Joomla-Website) hier im Catch-all.
 Route::get('/{any}', function () {
-    if (request()->query('option') === 'com_content') {
+    if (str_starts_with(request()->getRequestUri(), '/index.php')) {
         abort(410);
     }
     return view('welcome');
