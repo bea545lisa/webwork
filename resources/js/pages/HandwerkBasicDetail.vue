@@ -1,11 +1,11 @@
 <template>
-  <div class="bg-gray-50 min-h-screen flex flex-col">
-    <div class="max-w-6xl mx-auto px-6 pt-28 pb-16 flex-1 w-full">
+  <div class="bg-gray-50 dark:bg-[#2e2e2e] min-h-screen flex flex-col">
+    <div class="max-w-6xl mx-auto px-6 pt-20 pb-16 flex-1 w-full">
 
       <!-- Zurück -->
-      <div class="mb-12">
+      <div class="mb-8">
         <button @click="goBack"
-          class="text-[#475569] hover:text-[#fb923c] transition font-bold text-3xl cursor-pointer">
+          class="text-[#475569] dark:text-gray-100 hover:text-[#fb923c] transition font-bold text-3xl cursor-pointer">
           ←
         </button>
       </div>
@@ -14,16 +14,16 @@
       <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
         <div>
           <p class="text-[#fb923c] font-mono text-lg tracking-wider mb-1">Branchen-Spezial</p>
-          <h1 class="text-4xl font-bold text-[#475569] mb-1">Paket „Digitale Werkstatt“</h1>
+          <h1 class="text-4xl font-bold text-[#475569] dark:text-gray-100 mb-1">Paket „Digitale Werkstatt“</h1>
           <div class="h-[3px] w-12 bg-[#fb923c] mt-4"></div>
         </div>
         <div class="text-left sm:text-right">
-          <p class="text-2xl font-bold text-[#475569]">950 €*</p>
+          <p class="text-2xl font-bold text-[#475569] dark:text-gray-100">950 €*</p>
         </div>
       </div>
 
       <!-- Intro -->
-      <div class="space-y-5 text-[#475569] leading-relaxed text-base md:text-lg mb-12">
+      <div class="space-y-5 text-[#475569] dark:text-gray-300 leading-relaxed text-base md:text-lg mb-12">
         <p>
           Die „Digitale Werkstatt“ ist eine moderne Onepage-Website speziell für Handwerksbetriebe – schnell online,
           mobil optimiert und ohne den Ballast eines klassischen Baukastensystems.
@@ -39,9 +39,9 @@
 
       <!-- Enthalten -->
       <div class="mb-12">
-        <h2 class="text-xl font-bold text-[#475569] mb-4">Das ist enthalten</h2>
+        <h2 class="text-xl font-bold text-[#475569] dark:text-gray-100 mb-4">Das ist enthalten</h2>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          <p v-for="item in included" :key="item" class="text-[#475569] text-sm flex items-start gap-2">
+          <p v-for="item in included" :key="item" class="text-[#475569] dark:text-gray-300 text-sm flex items-start gap-2">
             <span class="text-[#fb923c] font-bold">✓</span> {{ item }}
           </p>
         </div>
@@ -49,18 +49,18 @@
 
       <!-- Erweiterungen -->
       <div class="mb-12">
-        <h2 class="text-xl font-bold text-[#475569] mb-1">Optionale Pro-Erweiterungen</h2>
-        <p class="text-gray-500 text-sm mb-8">
+        <h2 class="text-xl font-bold text-[#475569] dark:text-gray-100 mb-1">Optionale Pro-Erweiterungen</h2>
+        <p class="text-gray-500 dark:text-gray-400 text-sm mb-8">
           Manche Pro-Erweiterungen lassen sich auf der Muster-Webseite per Umschalter live zwischen Basic und Pro vergleichen.
         </p>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div v-for="addon in addons" :key="addon.title"
-            class="bg-white rounded-lg p-4 shadow-sm">
+            class="bg-white dark:bg-[#3d3d3d] rounded-lg p-4 shadow-sm">
             <div class="flex items-center justify-between mb-1">
-              <span class="text-[#475569] font-bold text-sm">{{ addon.icon }} {{ addon.title }}</span>
-              <span class="font-bold text-[#475569] text-sm shrink-0 ml-3">{{ addon.price }}</span>
+              <span class="text-[#475569] dark:text-gray-100 font-bold text-sm">{{ addon.icon }} {{ addon.title }}</span>
+              <span class="font-bold text-[#475569] dark:text-gray-100 text-sm shrink-0 ml-3">{{ addon.price }}</span>
             </div>
-            <p class="text-gray-500 text-sm">{{ addon.text }}</p>
+            <p class="text-gray-500 dark:text-gray-400 text-sm">{{ addon.text }}</p>
           </div>
         </div>
       </div>
@@ -72,26 +72,33 @@
           Muster-Website ansehen →
         </a>
         <RouterLink to="/#contact"
-          class="text-center border border-[#475569]/30 text-[#475569] hover:border-[#fb923c]/40 hover:text-[#fb923c] px-8 py-3 rounded-lg font-medium transition">
+          class="text-center border border-[#475569]/30 dark:border-gray-300/30 text-[#475569] dark:text-gray-100 hover:border-[#fb923c]/40 hover:text-[#fb923c] px-8 py-3 rounded-lg font-medium transition">
           Unverbindlich anfragen
         </RouterLink>
       </div>
 
-      <p class="text-gray-400 text-xs mt-4">
-        * zzgl. 19% MwSt. Festpreis gilt für den gezeigten Leistungsumfang der Basic-Version – individuelle Anpassungen auf Anfrage.
+      <p class="text-gray-500 dark:text-gray-400 text-xs mt-4">
+        * exkl. MwSt. <span class="font-bold mx-1">·</span> Festpreis gilt für den gezeigten Leistungsumfang der Basic-Version <span class="font-bold mx-1">·</span> individuelle Anpassungen auf Anfrage.
       </p>
 
     </div>
+    <FooterSection v-if="isDirectHandwerkVisit" />
   </div>
 </template>
 
 <script setup>
 import { useRouter } from 'vue-router';
+import { isDirectHandwerkVisit } from '../router/directVisit.js';
+import FooterSection from '../components/FooterSection.vue';
 
 const router = useRouter();
 
 function goBack() {
-  router.back();
+  if (window.history.length <= 1) {
+    window.close();
+  } else {
+    router.back();
+  }
 }
 
 const included = [
@@ -102,6 +109,7 @@ const included = [
   'Bild- und Textmaterial wird vom Kunden geliefert',
   'Rechtssicher (DSGVO & Impressum)',
   'Bis zu 9 Referenzprojekte & 6 Kundenstimmen',
+  'Automatischer Dark Mode je nach Geräteeinstellung',
 ];
 
 const addons = [

@@ -9,12 +9,18 @@
         class="absolute inset-0 transition-opacity duration-1000"
         :class="currentSlide === index ? 'opacity-100 z-10' : 'opacity-0 z-0'"
       >
-        <!-- Hintergrundbild: äußeres Div für Scale-Animation, inneres für Parallax -->
+        <!-- Hintergrundbild: äußeres Div für Scale-Animation, echtes <img> für Parallax + SEO (alt, Priorität) -->
         <div class="absolute inset-0 transition-transform duration-8000"
           :class="currentSlide === index ? 'scale-100' : 'scale-105'">
-          <div class="absolute inset-0 bg-cover bg-center"
-            :style="{ backgroundImage: `url(${slide.bg})`, transform: `translateY(${scrollY * 0.4}px)` }">
-          </div>
+          <img
+            :src="slide.bg"
+            :alt="slide.alt"
+            :loading="index === 0 ? 'eager' : 'lazy'"
+            :fetchpriority="index === 0 ? 'high' : 'auto'"
+            decoding="async"
+            class="absolute inset-0 w-full h-full object-cover"
+            :style="{ transform: `translateY(${scrollY * 0.4}px)` }"
+          />
         </div>
 
         <!-- Overlay -->
@@ -24,32 +30,30 @@
         <!-- Text Content -->
         <div class="relative z-10 flex flex-col justify-start pt-[210px] md:justify-center md:pt-0 h-full px-6 md:px-24 max-w-5xl">
 
-          <!-- Label -->
+          <!-- Label: trägt jetzt die H1-Semantik -->
           <div
             class="transition-all duration-700 delay-200"
             :class="currentSlide === index ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-16'"
           >
-            <span class="inline-block border border-[#fb923c80] bg-black/10 [backdrop-filter:blur(1.5px)] text-[#fb923c] text-xs font-mono px-3 py-1 rounded-full tracking-widest uppercase mb-6">
+            <h1 class="inline-block border border-[#fb923c80] bg-black/10 [backdrop-filter:blur(1.5px)] text-[#fb923c] text-xs font-mono px-3 py-1 rounded-full tracking-widest uppercase mb-6">
               {{ slide.label }}
-            </span>
+            </h1>
           </div>
 
-          <!-- Headline -->
+          <!-- Headline: Spruch/Blickfang -->
           <div
             class="transition-all duration-700 delay-350"
             :class="currentSlide === index ? 'opacity-100 translate-x-0' : slide.direction === 'left' ? 'opacity-0 -translate-x-24' : 'opacity-0 translate-x-24'"
           >
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-4"
-              v-html="slide.title">
-            </h1>
+            <h3 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-4" v-html="slide.title"></h3>
           </div>
 
-          <!-- Subtitle -->
+          <!-- Subtitle: trägt jetzt die H2-Semantik -->
           <div
             class="transition-all duration-700 delay-500"
             :class="currentSlide === index ? 'opacity-100 translate-x-0' : slide.direction === 'left' ? 'opacity-0 -translate-x-16' : 'opacity-0 translate-x-16'"
           >
-            <p class="text-xl md:text-2xl text-gray-300 font-light mb-8">{{ slide.subtitle }}</p>
+            <h2 class="text-xl md:text-2xl text-gray-300 font-light mb-8">{{ slide.subtitle }}</h2>
           </div>
 
           <!-- CTA -->
@@ -82,16 +86,6 @@
       />
     </div>
 
-    <!-- Pfeile -->
-    <button @click="prev"
-      class="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 items-center justify-center border border-[#ffffff33] hover:border-[#fb923c80] text-[#ffffff99] hover:text-[#fb923c] text-2xl transition rounded-full">
-      &#8249;
-    </button>
-    <button @click="next"
-      class="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 items-center justify-center border border-white/20 hover:border-[#fb923c]/50 text-white/60 hover:text-[#fb923c] text-2xl transition rounded-full">
-      &#8250;
-    </button>
-
     <!-- Scroll Indicator -->
     <div class="absolute bottom-10 right-10 md:right-24 flex flex-col items-center gap-2 z-20">
       <div class="w-px h-12 bg-linear-to-b from-[#fb923c80] to-transparent"></div>
@@ -109,6 +103,7 @@ const route = useRoute();
 const slides = [
   {
     bg: '/images/slides/meer-strand-liege-large.jpg',
+    alt: 'Entspannte Liege am Meer – Sinnbild für Full-Service Webentwicklung in Holzkirchen ohne eigenen Aufwand',
     label: 'Full-Service Webentwicklung · Holzkirchen',
     title: 'Bleiben Sie ganz<br><span style="color:#fb923c">entspannt ...</span>',
     subtitle: 'Ich kümmere mich drum',
@@ -117,6 +112,7 @@ const slides = [
   },
   {
     bg: '/images/slides/birne-sw-farbe1.jpg',
+    alt: 'Glühbirne in Schwarz-Weiß mit Farbakzent – Symbol für frisches Webdesign von der Webagentur im Oberland bei München',
     label: 'Webagentur · Raum München · Oberland',
     title: 'Ich bringe Ihre Website<br>ins <span style="color:#fb923c">richtige Licht</span>',
     subtitle: 'Modernes Design, saubere Technik',
@@ -125,6 +121,7 @@ const slides = [
   },
   {
     bg: '/images/slides/berge-sw-large.jpg',
+    alt: 'Bergpanorama im Oberland – individuelle Webentwicklung mit Laravel, Vue.js, React und Shopify',
     label: 'Laravel · Vue.js · React · Shopify',
     title: 'Moderne Lösungen<br>für Ihr <span style="color:#fb923c">Business</span>',
     subtitle: 'Individuelle Webentwicklung mit langjähriger Erfahrung',
@@ -133,11 +130,12 @@ const slides = [
   },
   {
     bg: '/images/slides/handwerker.jpg',
+    alt: 'Handwerker bei der Arbeit – Webseiten-Spezial für Handwerksbetriebe zum Festpreis inklusive Schnellbewerbung',
     label: 'Branchen-Spezial · Handwerksbetriebe',
-    title: 'Ihr Handwerk verdient<br>eine <span style="color:#fb923c">starke Webseite</span>',
-    subtitle: 'Für Handwerker zum Festpreis – inklusive Schnellbewerbung',
+    title: 'Ihr Handwerk verdient<br>einen <span style="color:#fb923c">starken Auftritt</span>',
+    subtitle: 'Webseite für Handwerker zum Festpreis',
     direction: 'right',
-    cta: { label: 'Handwerk Spezial ansehen', href: '#handwerk-spezial' },
+    cta: { label: 'Paket „Digitale Werkstatt“ ansehen', href: '#handwerk-spezial' },
   },
 ];
 
@@ -156,14 +154,6 @@ function scheduleNext() {
   }, durations[currentSlide.value]);
 }
 
-function next() {
-  currentSlide.value = (currentSlide.value + 1) % slides.length;
-  scheduleNext();
-}
-function prev() {
-  currentSlide.value = (currentSlide.value - 1 + slides.length) % slides.length;
-  scheduleNext();
-}
 function goTo(i) {
   currentSlide.value = i;
   scheduleNext();

@@ -1,12 +1,12 @@
 <template>
-  <section id="portfolio" class="py-24 bg-gray-50">
+  <section id="portfolio" class="py-24 bg-gray-50 dark:bg-[#454545]">
     <div class="max-w-6xl mx-auto px-6">
 
       <div class="mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-[#475569]">Referenzen</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-[#475569] dark:text-gray-100">Referenzen</h2>
         <div class="flex items-center gap-4 mt-3">
           <div class="h-[3px] w-12 bg-[#fb923c]"></div>
-          <p class="text-[#475569]">Ausgewählte Projekte</p>
+          <p class="text-[#475569] dark:text-gray-300">Ausgewählte Projekte</p>
         </div>
       </div>
 
@@ -20,7 +20,7 @@
             'px-4 py-2 rounded-full text-sm font-mono transition border',
             activeFilter === filter.value
               ? 'bg-[#fb923c] text-white border-[#fb923c]'
-              : 'border-[#475569]/30 text-[#475569] hover:border-[#fb923c]/40 hover:text-[#fb923c]'
+              : 'border-[#475569]/30 dark:border-gray-300/30 text-[#475569] dark:text-gray-300 hover:border-[#fb923c]/40 hover:text-[#fb923c]'
           ]"
         >
           {{ filter.label }}

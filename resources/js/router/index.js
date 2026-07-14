@@ -1,11 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import { isDirectHandwerkVisit } from './directVisit.js';
 import Home from '../pages/Home.vue';
-import ProjectDetail from '../pages/ProjectDetail.vue';
-import Impressum from '../pages/Impressum.vue';
-import Datenschutz from '../pages/Datenschutz.vue';
-import UeberMich from '../pages/UeberMich.vue';
-import HandwerkBasicDetail from '../pages/HandwerkBasicDetail.vue';
+
+// Lazy geladen (eigener Chunk, erst bei Bedarf) – Home bleibt eager, da immer sofort sichtbar.
+const ProjectDetail = () => import('../pages/ProjectDetail.vue');
+const Impressum = () => import('../pages/Impressum.vue');
+const Datenschutz = () => import('../pages/Datenschutz.vue');
+const UeberMich = () => import('../pages/UeberMich.vue');
+const HandwerkBasicDetail = () => import('../pages/HandwerkBasicDetail.vue');
 
 const routes = [
   { path: '/', name: 'home', component: Home },
@@ -26,7 +28,9 @@ const router = createRouter({
       });
     }
     if (to.hash) {
-      return { el: to.hash, behavior: 'smooth' };
+      return new Promise(resolve => {
+        setTimeout(() => resolve({ el: to.hash, behavior: 'smooth' }), 350);
+      });
     }
     return new Promise(resolve => {
       setTimeout(() => resolve({ top: 0, behavior: 'instant' }), 350);
@@ -80,9 +84,11 @@ function applyPageMeta(to) {
 }
 
 // Direktaufruf erkennen: die allererste Navigation hat noch keine "from"-Route.
+// Muss bei jedem Aufruf von handwerk-basic neu gesetzt werden (auch auf false),
+// sonst bleibt das Flag nach einem einmaligen Direktaufruf für den Rest der Session hängen.
 router.beforeEach((to, from) => {
-  if (from.matched.length === 0 && to.name === 'handwerk-basic') {
-    isDirectHandwerkVisit.value = true;
+  if (to.name === 'handwerk-basic') {
+    isDirectHandwerkVisit.value = from.matched.length === 0;
   }
 });
 

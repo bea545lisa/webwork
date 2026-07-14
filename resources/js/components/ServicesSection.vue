@@ -1,12 +1,12 @@
 <template>
-  <section id="angebot" class="py-24 bg-gray-50">
+  <section id="angebot" class="py-24 bg-gray-50 dark:bg-[#2e2e2e]">
     <div class="max-w-6xl mx-auto px-6">
 
       <div class="mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-[#475569]">Angebot</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-[#475569] dark:text-gray-100">Angebot</h2>
         <div class="flex items-center gap-4 mt-3">
           <div class="h-[3px] w-12 bg-[#fb923c]"></div>
-          <p class="text-gray-500">Alles rund um Ihren Online-Auftritt</p>
+          <p class="text-gray-500 dark:text-gray-400">Alles rund um Ihren Online-Auftritt</p>
         </div>
       </div>
 
@@ -14,7 +14,7 @@
         <div
           v-for="service in services"
           :key="service.title"
-          class="group p-6 bg-[#424a4d] rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.35)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.5)] transition-all duration-300 hover:-translate-y-1 flex flex-col h-[300px]"
+          class="group p-6 bg-[#454545] rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.35)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.5)] transition-all duration-300 hover:-translate-y-1 flex flex-col h-[300px]"
         >
           <div class="text-3xl mb-4 grayscale opacity-70">{{ service.icon }}</div>
           <h3 class="font-bold text-white text-xl mb-2 group-hover:text-[#fb923c] transition">

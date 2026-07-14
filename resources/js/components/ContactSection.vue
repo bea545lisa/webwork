@@ -1,5 +1,5 @@
 <template>
-  <section id="contact" class="py-24 bg-[#424a4d]">
+  <section id="contact" class="py-24 bg-[#585e60] dark:bg-[#5c5c5c]">
     <div class="max-w-6xl mx-auto px-6">
 
       <div class="grid md:grid-cols-2 gap-12 items-start">
@@ -20,7 +20,7 @@
               <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
             </svg>
             <div>
-              <p class="text-white/60 text-xs font-mono uppercase tracking-wider mb-1">Telefon</p>
+              <p class="text-white/60 text-xs font-mono uppercase tracking-wider mb-0 leading-none">Telefon</p>
               <a href="tel:+4980244688225" class="text-white hover:text-[#fb923c] transition">08024 4688225</a>
             </div>
           </div>
@@ -31,7 +31,7 @@
               <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
             </svg>
             <div>
-              <p class="text-white/60 text-xs font-mono uppercase tracking-wider mb-1">E-Mail</p>
+              <p class="text-white/60 text-xs font-mono uppercase tracking-wider mb-0 leading-none">E-Mail</p>
               <a :href="'mai'+'lto:'+email" class="text-white hover:text-[#fb923c] transition">{{ email }}</a>
             </div>
           </div>
@@ -70,7 +70,7 @@
             <span v-else>Nachricht senden →</span>
           </button>
           <p class="text-white/60 text-xs text-center">
-            Bitte beachten Sie vor Absenden des Formulars unsere
+            Bitte beachten Sie vor Absenden des Formulars die
             <a href="/datenschutz" target="_blank" rel="noopener" class="underline hover:text-[#fb923c] transition">Datenschutzerklärung</a>.
           </p>
           <p v-if="success" class="text-green-400 text-sm text-center font-mono">

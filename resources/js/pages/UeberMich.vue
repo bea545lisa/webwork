@@ -1,11 +1,11 @@
 <template>
-  <div class="bg-gray-50 min-h-screen flex flex-col">
-    <div class="max-w-3xl mx-auto px-6 py-16 flex-1 w-full">
+  <div class="bg-gray-50 dark:bg-[#2e2e2e] min-h-screen flex flex-col">
+    <div class="max-w-6xl mx-auto px-6 py-16 flex-1 w-full">
 
       <!-- Zurück -->
       <div class="mb-12">
         <button @click="goBack"
-          class="text-[#475569] hover:text-[#fb923c] transition font-bold text-3xl cursor-pointer">
+          class="text-[#475569] dark:text-gray-100 hover:text-[#fb923c] transition font-bold text-3xl cursor-pointer">
           ←
         </button>
       </div>
@@ -13,16 +13,16 @@
       <!-- Foto + Name -->
       <div class="flex flex-col sm:flex-row items-center sm:items-start gap-8 mb-10">
         <img :src="'/images/foto.jpg'" alt="Beate Rohrmoser"
-          class="w-40 h-40 rounded-full object-cover shrink-0 border-4 border-white" />
+          class="w-40 h-40 rounded-full object-cover shrink-0 border-4 border-white dark:border-[#3a4144]" />
         <div class="text-center sm:text-left">
           <p class="text-[#fb923c] font-mono text-lg tracking-wider mb-1">Servus, ich bin</p>
-          <h1 class="text-4xl font-bold text-[#475569] mb-1">Beate Rohrmoser</h1>
+          <h1 class="text-4xl font-bold text-[#475569] dark:text-gray-100 mb-1">Beate Rohrmoser</h1>
           <div class="h-[3px] w-12 bg-[#fb923c] mt-4 mx-auto sm:mx-0"></div>
         </div>
       </div>
 
       <!-- Bio -->
-      <div class="space-y-5 text-[#475569] leading-relaxed text-base md:text-lg">
+      <div class="max-w-3xl space-y-5 text-[#475569] dark:text-gray-300 leading-relaxed text-base md:text-lg">
         <p>
           Ich bin freiberufliche Webentwicklerin im Raum München und Oberland – mit einem klaren Fokus auf
           individuelle, moderne Weblösungen für Unternehmen und Selbständige.
@@ -48,7 +48,12 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
+// In eigenem Tab geöffnet => keine Vorgeschichte in diesem Tab, dann Tab schließen statt zur Startseite zu navigieren.
 function goBack() {
-  router.back();
+  if (window.history.length <= 1) {
+    window.close();
+  } else {
+    router.back();
+  }
 }
 </script>

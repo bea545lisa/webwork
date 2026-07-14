@@ -16,6 +16,18 @@
     <meta name="theme-color" content="#585e60" media="(prefers-color-scheme: dark)">
     <meta name="msapplication-navbutton-color" content="#585e60">
     <meta name="msapplication-TileColor" content="#585e60">
+    <meta name="color-scheme" content="light dark">
+    <script>
+      // Vor dem ersten Rendern gesetzt (nicht in einem Vue-onMounted), damit
+      // beim Laden kein heller Flackerer im Dark Mode auftritt.
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme');
+          var dark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+          document.documentElement.classList.toggle('dark', dark);
+        } catch (e) {}
+      })();
+    </script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>

@@ -2,6 +2,10 @@
 
 @import 'tailwindcss';
 
+/* Dark Mode über .dark-Klasse am <html> steuern (Gerätepräferenz + manueller
+   Umschalter im Footer), statt nur über prefers-color-scheme. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
@@ -23,4 +27,8 @@ h1, h2, h3 {
 
 body {
     background-color: #585e60;
+}
+
+html.dark body {
+    background-color: #2e2e2e;
 }

@@ -1,16 +1,17 @@
 <template>
-  <div class="bg-gray-50 min-h-screen flex flex-col">
-    <div class="max-w-3xl mx-auto px-6 py-16 flex-1 w-full">
+  <div class="bg-gray-50 dark:bg-[#2e2e2e] min-h-screen flex flex-col">
+    <div class="max-w-6xl mx-auto px-6 py-16 flex-1 w-full">
 
       <div class="mb-10">
-        <RouterLink to="/" class="text-[#475569] hover:text-[#fb923c] transition font-mono text-sm">
-          ← Zurück
-        </RouterLink>
+        <button @click="goBack"
+          class="text-[#475569] dark:text-gray-100 hover:text-[#fb923c] transition font-bold text-3xl cursor-pointer">
+          ←
+        </button>
       </div>
 
-      <h1 class="text-3xl font-bold text-[#475569] mb-8">Impressum</h1>
+      <h1 class="text-3xl font-bold text-[#475569] dark:text-gray-100 mb-8">Impressum</h1>
 
-      <div class="space-y-6 text-[#475569]">
+      <div class="space-y-6 text-[#475569] dark:text-gray-300">
 
         <div>
           <h2 class="font-mono text-[#fb923c] text-xs uppercase tracking-widest mb-2">Angaben gemäß § 5 TMG</h2>
@@ -44,6 +45,17 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router';
 import FooterSection from '../components/FooterSection.vue';
+const router = useRouter();
 const email = ['mail', 'webwork-oberland.de'].join('@');
+
+// In eigenem Tab geöffnet => keine Vorgeschichte in diesem Tab, dann Tab schließen statt zur Startseite zu navigieren.
+function goBack() {
+  if (window.history.length <= 1) {
+    window.close();
+  } else {
+    router.back();
+  }
+}
 </script>

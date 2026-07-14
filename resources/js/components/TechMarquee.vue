@@ -1,13 +1,13 @@
 <template>
-  <section class="py-32 bg-gray-50 overflow-hidden">
+  <section class="py-32 bg-gray-50 dark:bg-[#2e2e2e] overflow-hidden">
     <div class="max-w-6xl mx-auto px-6 mb-10">
-      <h2 class="text-3xl md:text-4xl font-bold text-[#475569]">Technologien</h2>
+      <h2 class="text-3xl md:text-4xl font-bold text-[#475569] dark:text-gray-100">Technologien</h2>
       <div class="h-[3px] w-12 bg-[#fb923c] mt-2"></div>
     </div>
 
     <div class="relative">
-      <div class="absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none"></div>
-      <div class="absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none"></div>
+      <div class="absolute left-0 top-0 h-full w-32 bg-gradient-to-r from-gray-50 dark:from-[#2e2e2e] to-transparent z-10 pointer-events-none"></div>
+      <div class="absolute right-0 top-0 h-full w-32 bg-gradient-to-l from-gray-50 dark:from-[#2e2e2e] to-transparent z-10 pointer-events-none"></div>
 
       <div
         ref="trackRef"
@@ -29,12 +29,12 @@
           >
             <div class="w-16 h-16 flex items-center justify-center">
               <img
-                :src="`https://cdn.simpleicons.org/${tech.slug}/${tech.color}`"
+                :src="`https://cdn.simpleicons.org/${tech.slug}/${isDark ? 'd1d5db' : tech.color}`"
                 :alt="tech.name"
                 class="w-16 h-16 opacity-90 group-hover:opacity-100 transition duration-300 pointer-events-none"
               />
             </div>
-            <span class="text-xs text-[#475569] group-hover:text-[#fb923c] transition font-mono whitespace-nowrap">
+            <span class="text-xs text-[#475569] dark:text-gray-300 group-hover:text-[#fb923c] transition font-mono whitespace-nowrap">
               {{ tech.name }}
             </span>
           </div>
@@ -46,6 +46,9 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted, nextTick } from 'vue';
+import { useTheme } from '../theme.js';
+
+const { isDark } = useTheme();
 
 const techs = [
   { name: 'PHP',        slug: 'php',           color: '2d2d2d' },
