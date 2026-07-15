@@ -12,9 +12,12 @@
 
     # Alle Aufrufe von index.php (alte Joomla-Website, mit oder ohne Parameter):
     # 410 Gone statt 200, damit Google diese längst gelöschten Seiten aus dem
-    # Index nimmt. Läuft hier statt in Laravel selbst, weil Laravel den
-    # Skriptnamen "index.php" schon vor dem Routing aus dem Pfad entfernt.
-    RewriteRule ^index\.php$ - [G,L]
+    # Index nimmt. Prüft %{THE_REQUEST} (die tatsächliche Browser-Anfrage),
+    # NICHT den aktuellen Rewrite-Pfad - sonst greift die Regel auch bei der
+    # internen Weiterleitung JEDER normalen Seite auf index.php (siehe unten)
+    # und blockiert damit versehentlich die ganze Website.
+    RewriteCond %{THE_REQUEST} \s/index\.php[?\s]
+    RewriteRule ^ - [G,L]
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
