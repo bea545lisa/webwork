@@ -31,12 +31,37 @@
         "addressCountry": "DE"
       },
       "areaServed": [
-        "München", "Kreuth", "Oberland", "Otterfing", "Tegernsee", "Bad Wiessee",
-        "Valley", "Warngau", "Hausham", "Miesbach", "Bad Tölz", "Lenggries",
-        "Waakirchen", "Schliersee", "Holzkirchen", "Fischbachau", "Irschenberg",
-        "Gmund am Tegernsee", "Feldkirchen-Westerham"
+        "München", "München-Thalkirchen", "München-Obersendling", "München-Forstenried",
+        "München-Fürstenried", "München-Solln", "Sauerlach", "Oberhaching", "Ottobrunn",
+        "Unterhaching", "Taufkirchen", "Neubiberg", "Aying", "Grünwald",
+        "Kreuth", "Oberland", "Otterfing", "Tegernsee", "Bad Wiessee", "Valley",
+        "Warngau", "Hausham", "Miesbach", "Bad Tölz", "Lenggries", "Waakirchen",
+        "Schliersee", "Holzkirchen", "Fischbachau", "Irschenberg", "Gmund am Tegernsee",
+        "Feldkirchen-Westerham"
       ],
-      "priceRange": "€€"
+      "priceRange": "€€",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Dienstleistungen",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Webseiten-Pflege & Support" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Onlineshops & Shopify" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Webdesign & Re-Design" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Individuelle Webentwicklung" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Layout & Corporate Design" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Beratung & Projektbegleitung" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Anwendungsentwicklung" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Softwareentwicklung" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Webseitenerstellung" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website für Handwerker" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Handwerker-Website zum Festpreis" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ladezeiten-Optimierung" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "DSGVO-Webseitenpflege" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Onlineshop-Erstellung" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Webseiten-Modernisierung" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Suchmaschinenoptimierung" } }
+        ]
+      }
     }
     </script>
     <meta name="theme-color" content="#585e60" media="(prefers-color-scheme: light)">

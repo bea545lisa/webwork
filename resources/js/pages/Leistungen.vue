@@ -1,9 +1,9 @@
 <template>
   <div class="bg-gray-50 dark:bg-[#2e2e2e] min-h-screen flex flex-col">
-    <div class="max-w-6xl mx-auto px-6 pt-28 pb-16 flex-1 w-full">
+    <div class="max-w-6xl mx-auto px-6 pt-20 pb-16 flex-1 w-full">
 
       <!-- Zurück -->
-      <div class="mb-10">
+      <div class="mb-8">
         <button @click="goBack"
           class="text-[#475569] dark:text-gray-100 hover:text-[#fb923c] transition font-bold text-3xl cursor-pointer">
           ←
@@ -21,24 +21,43 @@
       </div>
 
       <!-- Leistungen -->
-      <div class="space-y-12 mb-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 mb-16">
         <div v-for="service in services" :key="service.title">
           <h2 class="text-2xl font-bold text-[#475569] dark:text-gray-100 mb-3 flex items-center gap-3">
             <span class="text-3xl grayscale opacity-70">{{ service.icon }}</span>
             {{ service.title }}
           </h2>
-          <p class="text-[#475569] dark:text-gray-300 leading-relaxed max-w-3xl">{{ service.text }}</p>
+          <p class="text-[#475569] dark:text-gray-300 leading-relaxed">{{ service.text }}</p>
         </div>
+      </div>
+
+      <!-- Branchen-Spezial -->
+      <div class="mb-16">
+        <h2 class="text-2xl font-bold text-[#475569] dark:text-gray-100 mb-3 flex items-center gap-3">
+          <span class="text-3xl grayscale opacity-70">🔨</span>
+          Website für Handwerker
+        </h2>
+        <p class="text-[#475569] dark:text-gray-300 leading-relaxed max-w-3xl">
+          Für Handwerksbetriebe gibt es zusätzlich ein eigenes Festpreis-Paket: eine moderne, mobil optimierte
+          Onepage-Website inklusive Schnellbewerbungs-Funktion.
+          <RouterLink to="/handwerk-basic" class="text-[#fb923c] hover:text-[#ea7c1e] underline transition">
+            Details zum Handwerk-Paket ansehen →
+          </RouterLink>
+        </p>
       </div>
 
       <!-- Einzugsgebiet -->
       <div class="mb-16">
         <h2 class="text-2xl font-bold text-[#475569] dark:text-gray-100 mb-3">Einzugsgebiet</h2>
         <p class="text-[#475569] dark:text-gray-300 leading-relaxed max-w-3xl mb-4">
-          Ich betreue Kunden im gesamten Oberland und Umgebung, unter anderem in:
+          Ich betreue Kunden im Münchner Süden und dem gesamten Oberland, unter anderem in:
+        </p>
+        <p class="text-[#475569] dark:text-gray-300 leading-relaxed max-w-3xl mb-4">
+          {{ areas.join(' · ') }}
         </p>
         <p class="text-[#475569] dark:text-gray-300 leading-relaxed max-w-3xl">
-          {{ areas.join(' · ') }}
+          Für ortsunabhängige Leistungen wie individuelle Webentwicklung oder Beratung arbeite ich auch mit
+          Kunden im gesamten deutschsprachigen Raum zusammen.
         </p>
       </div>
 
@@ -74,22 +93,22 @@ const services = [
   {
     title: 'Webseiten-Pflege & Support',
     icon: '🛡️',
-    text: 'Läuft Ihre bestehende Seite auf WordPress, Jimdo oder einem Baukastensystem und die Technik dahinter kostet Sie mehr Nerven als Ihnen lieb ist? Ich übernehme laufende Updates, richte automatische Backups ein, pflege neue Texte und Bilder ein und bin bei akuten Problemen erreichbar – meist ohne dass Sie selbst etwas davon merken. So bleibt Ihre Website sicher und aktuell, ohne dass Sie sich selbst darum kümmern müssen.',
+    text: 'Läuft Ihre bestehende Seite auf WordPress, Jimdo oder einem Webbaukasten und die Technik dahinter kostet Sie mehr Nerven als Ihnen lieb ist? Ich übernehme laufende Updates, richte automatische Backups ein, pflege neue Texte und Bilder ein und bin bei akuten Problemen erreichbar – meist ohne dass Sie selbst etwas davon merken. Dazu gehört auch eine DSGVO-konforme Webseitenpflege (Rechtstexte, Cookie-Einstellungen, Serverstandort), damit Ihre Website sicher, aktuell und rechtlich sauber bleibt, ohne dass Sie sich selbst darum kümmern müssen.',
   },
   {
     title: 'Onlineshops & Shopify',
     icon: '🛒',
-    text: 'Für kleine und mittlere Händler richte ich Onlineshops komplett ein oder migriere bestehende Shops zu Shopify – inklusive Produktkatalog, Zahlungsanbindung und Versandeinstellungen. Darüber hinaus programmiere ich individuelle Shopify-Apps und Design-Anpassungen, die es "von der Stange" nicht gibt, und begleite Sie auch nach dem Launch bei der laufenden Weiterentwicklung.',
+    text: 'Für kleine und mittlere Händler übernehme ich die komplette Onlineshop-Erstellung oder migriere bestehende Shops zu Shopify – inklusive Produktkatalog, Zahlungsanbindung und Versandeinstellungen. Darüber hinaus programmiere ich individuelle Shopify-Apps und Design-Anpassungen, die es "von der Stange" nicht gibt, und begleite Sie auch nach dem Launch bei der laufenden Weiterentwicklung.',
   },
   {
     title: 'Webdesign & Re-Design',
     icon: '🎨',
-    text: 'Eine in die Jahre gekommene Website kostet Sie Kunden, ohne dass Sie es merken – lange Ladezeiten, unübersichtliches Design oder fehlende mobile Darstellung schrecken Besucher ab. Ich gestalte Ihren Auftritt komplett neu, mit Fokus auf schnelle Ladezeiten, klare Struktur und eine Darstellung, die auf jedem Gerät funktioniert. Grundlegende SEO-Maßnahmen (Meta-Angaben, Struktur, Ladezeit) sind dabei von Anfang an mit eingebaut, nicht nachträglich draufgesetzt.',
+    text: 'Eine in die Jahre gekommene Website kostet Sie Kunden, ohne dass Sie es merken – lange Ladezeiten, unübersichtliches Design oder fehlende mobile Darstellung schrecken Besucher ab. Ob komplette Webseitenerstellung von Grund auf oder Webseiten-Modernisierung einer bestehenden Seite: Ich sorge für zeitgemäßes Webdesign mit Fokus auf Ladezeiten-Optimierung, klare Struktur und eine Darstellung, die auf jedem Gerät funktioniert. Suchmaschinenoptimierung (SEO) ist dabei von Anfang an mit eingebaut, nicht nachträglich draufgesetzt.',
   },
   {
     title: 'Individuelle Webentwicklung',
     icon: '⚙️',
-    text: 'Wenn eine Standardlösung nicht mehr ausreicht, entwickle ich passgenaue Web- und Mobile-Anwendungen mit PHP, Laravel, React und Vue.js – zum Beispiel für interne Verwaltungstools, Buchungssysteme oder Kundenportale. Dazu gehört auch die Anbindung an bestehende Software über Schnittstellen (APIs) und die Automatisierung von Abläufen, die aktuell noch manuell erledigt werden.',
+    text: 'Wenn eine Standardlösung nicht mehr ausreicht, übernehme ich als Webagentur die Anwendungsentwicklung und Softwareentwicklung passgenauer Web- und Mobile-Anwendungen mit PHP, Laravel, React und Vue.js – zum Beispiel für interne Verwaltungstools, Buchungssysteme oder Kundenportale. Dazu gehört auch die Anbindung an bestehende Software über Schnittstellen (APIs) und die Automatisierung von Abläufen, die aktuell noch manuell erledigt werden.',
   },
   {
     title: 'Layout & Corporate Design',
@@ -104,9 +123,12 @@ const services = [
 ];
 
 const areas = [
-  'München', 'Kreuth', 'Oberland', 'Otterfing', 'Tegernsee', 'Bad Wiessee',
-  'Valley', 'Warngau', 'Hausham', 'Miesbach', 'Bad Tölz', 'Lenggries',
-  'Waakirchen', 'Schliersee', 'Holzkirchen', 'Fischbachau', 'Irschenberg',
-  'Gmund am Tegernsee', 'Feldkirchen-Westerham',
+  'München', 'München-Thalkirchen', 'München-Obersendling', 'München-Forstenried',
+  'München-Fürstenried', 'München-Solln', 'Sauerlach', 'Oberhaching', 'Ottobrunn',
+  'Unterhaching', 'Taufkirchen', 'Neubiberg', 'Aying', 'Grünwald',
+  'Kreuth', 'Oberland', 'Otterfing', 'Tegernsee', 'Bad Wiessee', 'Valley',
+  'Warngau', 'Hausham', 'Miesbach', 'Bad Tölz', 'Lenggries', 'Waakirchen',
+  'Schliersee', 'Holzkirchen', 'Fischbachau', 'Irschenberg', 'Gmund am Tegernsee',
+  'Feldkirchen-Westerham',
 ];
 </script>
