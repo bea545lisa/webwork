@@ -32,3 +32,13 @@ body {
 html.dark body {
     background-color: #2e2e2e;
 }
+
+/* Verhindert kurze Layer-Ränder (Kompositions-Seams) auf iOS Safari beim
+   allerersten Laden, wenn die Hero-Slide-Elemente initial einblenden.
+   Wird direkt nach dem Vue-Mount per App.vue wieder entfernt. */
+html.no-transitions,
+html.no-transitions *,
+html.no-transitions *::before,
+html.no-transitions *::after {
+    transition: none !important;
+}

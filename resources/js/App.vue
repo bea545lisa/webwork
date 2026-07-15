@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-import { computed, ref, watch } from 'vue';
+import { computed, ref, watch, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import Home from './pages/Home.vue';
 
@@ -26,6 +26,12 @@ const route = useRoute();
 const isOverlayPage = computed(() => ['project-detail', 'ueber-mich', 'handwerk-basic', 'leistungen', 'impressum', 'datenschutz'].includes(route.name));
 const showOverlay = ref(false);
 let savedScrollY = 0;
+
+onMounted(() => {
+  // Transitions erst nach dem ersten Rendern aktivieren (siehe app.css:
+  // vermeidet iOS-Safari-Layer-Ränder beim initialen Einblenden der Hero-Slides).
+  requestAnimationFrame(() => document.documentElement.classList.remove('no-transitions'));
+});
 
 watch(isOverlayPage, (val) => {
   if (val) {
