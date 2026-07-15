@@ -15,7 +15,7 @@
     <meta property="og:image" content="https://webwork-oberland.de/og-image.jpg">
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
+      "@@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "[web]work Oberland",
       "image": "https://webwork-oberland.de/apple-touch-icon.png",
