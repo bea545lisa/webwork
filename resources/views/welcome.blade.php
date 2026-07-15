@@ -13,6 +13,27 @@
     <meta property="og:title" content="webwork Oberland – Webentwicklung & Design">
     <meta property="og:description" content="Webseiten, Onlineshops und individuelle Webanwendungen für kleine Unternehmen im Oberland. Schnell, modern und auf Ihre Bedürfnisse zugeschnitten.">
     <meta property="og:image" content="https://webwork-oberland.de/og-image.jpg">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "[web]work Oberland",
+      "image": "https://webwork-oberland.de/apple-touch-icon.png",
+      "url": "https://webwork-oberland.de/",
+      "telephone": "+49 8024 4688225",
+      "email": "mail@webwork-oberland.de",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Dekan-Imminger-Str. 15",
+        "addressLocality": "Holzkirchen",
+        "addressRegion": "BY",
+        "postalCode": "83607",
+        "addressCountry": "DE"
+      },
+      "areaServed": ["Holzkirchen", "Oberland", "München"],
+      "priceRange": "€€"
+    }
+    </script>
     <meta name="theme-color" content="#585e60" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#585e60" media="(prefers-color-scheme: dark)">
     <meta name="msapplication-navbutton-color" content="#585e60">
