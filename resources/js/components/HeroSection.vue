@@ -1,5 +1,5 @@
 <template>
-  <section id="hero" class="relative min-h-screen overflow-hidden">
+  <section id="hero" class="relative min-h-screen overflow-hidden bg-[#2e2e2e]">
 
     <!-- Slides -->
     <div class="relative w-full h-screen">
