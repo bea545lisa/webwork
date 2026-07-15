@@ -24,6 +24,12 @@
         </div>
       </div>
 
+      <div class="mt-10 text-right">
+        <RouterLink to="/leistungen" class="text-[#fb923c] font-medium hover:text-[#ea7c1e] transition">
+          Alle Leistungen im Detail →
+        </RouterLink>
+      </div>
+
     </div>
   </section>
 </template>

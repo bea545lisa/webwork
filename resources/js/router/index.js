@@ -8,12 +8,14 @@ const Impressum = () => import('../pages/Impressum.vue');
 const Datenschutz = () => import('../pages/Datenschutz.vue');
 const UeberMich = () => import('../pages/UeberMich.vue');
 const HandwerkBasicDetail = () => import('../pages/HandwerkBasicDetail.vue');
+const Leistungen = () => import('../pages/Leistungen.vue');
 
 const routes = [
   { path: '/', name: 'home', component: Home },
   { path: '/portfolio/:slug', name: 'project-detail', component: ProjectDetail },
   { path: '/ueber-mich', name: 'ueber-mich', component: UeberMich },
   { path: '/handwerk-basic', name: 'handwerk-basic', component: HandwerkBasicDetail },
+  { path: '/leistungen', name: 'leistungen', component: Leistungen },
   { path: '/impressum', name: 'impressum', component: Impressum },
   { path: '/datenschutz', name: 'datenschutz', component: Datenschutz },
 ];
@@ -69,6 +71,11 @@ const pageMeta = {
     title: 'Handwerk Spezial „Digitale Werkstatt“ – Webseite für Handwerksbetriebe zum Festpreis | webwork Oberland',
     description:
       'Moderne Onepage-Website für Handwerksbetriebe zum Festpreis: schnell online, mobil optimiert, inklusive Schnellbewerbung. Live-Demo und optionale Pro-Erweiterungen ansehen.',
+  },
+  leistungen: {
+    title: 'Leistungen – Webentwicklung, Webdesign & Support | webwork Oberland',
+    description:
+      'Webseiten-Pflege, Onlineshops, Webdesign, individuelle Webentwicklung und Beratung – für Kunden im Oberland, Raum München und am Tegernsee.',
   },
 };
 
