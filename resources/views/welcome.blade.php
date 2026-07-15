@@ -30,7 +30,12 @@
         "postalCode": "83607",
         "addressCountry": "DE"
       },
-      "areaServed": ["Holzkirchen", "Oberland", "München"],
+      "areaServed": [
+        "München", "Kreuth", "Oberland", "Otterfing", "Tegernsee", "Bad Wiessee",
+        "Valley", "Warngau", "Hausham", "Miesbach", "Bad Tölz", "Lenggries",
+        "Waakirchen", "Schliersee", "Holzkirchen", "Fischbachau", "Irschenberg",
+        "Gmund am Tegernsee", "Feldkirchen-Westerham"
+      ],
       "priceRange": "€€"
     }
     </script>
