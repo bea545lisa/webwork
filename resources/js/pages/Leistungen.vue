@@ -51,13 +51,14 @@
       </div>
 
     </div>
-    <FooterSection />
+    <FooterSection v-if="isDirectVisit" />
   </div>
 </template>
 
 <script setup>
 import { useRouter } from 'vue-router';
 import FooterSection from '../components/FooterSection.vue';
+import { isDirectVisit } from '../router/directVisit.js';
 
 const router = useRouter();
 
@@ -73,32 +74,32 @@ const services = [
   {
     title: 'Webseiten-Pflege & Support',
     icon: '🛡️',
-    text: 'Sie nutzen WordPress, Jimdo oder einen Baukasten, aber die Technik nervt oder kostet zu viel Zeit? Ob regelmäßige Wartung, sichere Backups, neue Inhalte oder schnelle Soforthilfe: Ich halte Ihnen im Hintergrund den Rücken frei, damit Sie sich auf Ihr Kerngeschäft konzentrieren können.',
+    text: 'Läuft Ihre bestehende Seite auf WordPress, Jimdo oder einem Baukastensystem und die Technik dahinter kostet Sie mehr Nerven als Ihnen lieb ist? Ich übernehme laufende Updates, richte automatische Backups ein, pflege neue Texte und Bilder ein und bin bei akuten Problemen erreichbar – meist ohne dass Sie selbst etwas davon merken. So bleibt Ihre Website sicher und aktuell, ohne dass Sie sich selbst darum kümmern müssen.',
   },
   {
     title: 'Onlineshops & Shopify',
     icon: '🛒',
-    text: 'Vom ersten Setup bis zur laufenden Optimierung – ich realisiere Ihren E-Commerce-Auftritt mit Shopify oder dem passenden System, begleite Sie beim Wechsel von einer bestehenden Plattform und entwickle maßgeschneiderte Erweiterungen für Ihre individuellen Anforderungen.',
+    text: 'Für kleine und mittlere Händler richte ich Onlineshops komplett ein oder migriere bestehende Shops zu Shopify – inklusive Produktkatalog, Zahlungsanbindung und Versandeinstellungen. Darüber hinaus programmiere ich individuelle Shopify-Apps und Design-Anpassungen, die es "von der Stange" nicht gibt, und begleite Sie auch nach dem Launch bei der laufenden Weiterentwicklung.',
   },
   {
     title: 'Webdesign & Re-Design',
     icon: '🎨',
-    text: 'Ist Ihre Webseite in die Jahre gekommen? Ich modernisiere Design sowie Technik, optimiere die Ladezeiten und mache Ihren Auftritt fit für alle Endgeräte – vom Smartphone bis zum großen Monitor. Moderne Suchmaschinenoptimierung (SEO) sorgt von Anfang an für ein starkes Google-Ranking.',
+    text: 'Eine in die Jahre gekommene Website kostet Sie Kunden, ohne dass Sie es merken – lange Ladezeiten, unübersichtliches Design oder fehlende mobile Darstellung schrecken Besucher ab. Ich gestalte Ihren Auftritt komplett neu, mit Fokus auf schnelle Ladezeiten, klare Struktur und eine Darstellung, die auf jedem Gerät funktioniert. Grundlegende SEO-Maßnahmen (Meta-Angaben, Struktur, Ladezeit) sind dabei von Anfang an mit eingebaut, nicht nachträglich draufgesetzt.',
   },
   {
     title: 'Individuelle Webentwicklung',
     icon: '⚙️',
-    text: 'Maßgeschneiderte Web- und Mobile-Anwendungen mit PHP, Laravel, MySQL, React und Vue.js. Von der Prozessautomatisierung über API-Anbindungen bis zur individuellen Schnittstellenentwicklung – ich setze Ihre digitale Idee technisch sauber um.',
+    text: 'Wenn eine Standardlösung nicht mehr ausreicht, entwickle ich passgenaue Web- und Mobile-Anwendungen mit PHP, Laravel, React und Vue.js – zum Beispiel für interne Verwaltungstools, Buchungssysteme oder Kundenportale. Dazu gehört auch die Anbindung an bestehende Software über Schnittstellen (APIs) und die Automatisierung von Abläufen, die aktuell noch manuell erledigt werden.',
   },
   {
     title: 'Layout & Corporate Design',
     icon: '🖊️',
-    text: 'Visuelle Kommunikation vom Logo bis zur Druckvorlage. Ich gestalte Ihr Briefpapier, Flyer, Visitenkarten und Broschüren, damit Ihr Auftritt online wie offline durchgängig professionell wirkt.',
+    text: 'Ein Logo allein macht noch keinen einheitlichen Auftritt. Ich entwerfe Ihr komplettes Erscheinungsbild für Print und Digital – von Visitenkarten über Briefpapier bis zu Flyern und Broschüren –, damit Kunden Sie auf den ersten Blick wiedererkennen, egal ob online oder auf Papier.',
   },
   {
     title: 'Beratung & Projektbegleitung',
     icon: '💡',
-    text: 'Unabhängige Technologie-Beratung auf Augenhöhe. Ich helfe Ihnen, die passenden Systeme auszuwählen, bestehende Infrastrukturen zu analysieren und Ihre digitale Vision sicher und nachvollziehbar umzusetzen.',
+    text: 'Nicht jedes Projekt braucht von Anfang an eine fertige Lösung. Manchmal hilft zuerst ein unabhängiger Blick von außen: Welches System passt zu Ihrem Vorhaben, was lässt sich an der bestehenden Infrastruktur verbessern, und wie gehen Sie ein größeres Projekt am sinnvollsten an? Ich begleite Sie durch diese Entscheidungen, ohne Ihnen ein bestimmtes Produkt aufzudrängen.',
   },
 ];
 

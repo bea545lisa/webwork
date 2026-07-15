@@ -75,16 +75,17 @@
 <script setup>
 import { ref, computed, watch, onMounted, onUnmounted, nextTick } from 'vue';
 import { useRoute } from 'vue-router';
-import { isDirectHandwerkVisit } from '../router/directVisit.js';
+import { isDirectVisit, directVisitRoutes } from '../router/directVisit.js';
 
 const scrolled = ref(false);
 const mobileMenuOpen = ref(false);
 const route = useRoute();
-// /handwerk-basic verhält sich wie project-detail/ueber-mich (Menü versteckt),
-// AUSSER es wurde direkt aufgerufen (z.B. via Google) – dann bleibt das Menü sichtbar.
+// /handwerk-basic und /leistungen verhalten sich wie project-detail/ueber-mich
+// (Menü versteckt), AUSSER sie wurden direkt aufgerufen (z.B. via Google) –
+// dann bleibt das Menü sichtbar.
 const isOverlay = computed(() =>
   ['project-detail', 'ueber-mich', 'impressum', 'datenschutz'].includes(route.name) ||
-  (route.name === 'handwerk-basic' && !isDirectHandwerkVisit.value)
+  (directVisitRoutes.includes(route.name) && !isDirectVisit.value)
 );
 const isLightPage = computed(() => route.name !== 'home');
 // Ein-/Ausblenden reagiert sofort auf die Route (kein künstliches Delay mehr,
@@ -93,7 +94,7 @@ const isLightPage = computed(() => route.name !== 'home');
 const isDetailPage = computed(() => isOverlay.value);
 
 const navItems = [
-  { href: '#angebot',   label: 'Angebot' },
+  { href: '#leistungen', label: 'Leistungen' },
   { href: '#portfolio', label: 'Referenzen' },
   { href: '#contact',   label: 'Kontakt' },
 ];

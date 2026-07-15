@@ -1,9 +1,9 @@
 <template>
-  <section id="angebot" class="py-24 bg-gray-50 dark:bg-[#2e2e2e]">
+  <section id="leistungen" class="py-24 bg-gray-50 dark:bg-[#2e2e2e]">
     <div class="max-w-6xl mx-auto px-6">
 
       <div class="mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-[#475569] dark:text-gray-100">Angebot</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-[#475569] dark:text-gray-100">Leistungen</h2>
         <div class="flex items-center gap-4 mt-3">
           <div class="h-[3px] w-12 bg-[#fb923c]"></div>
           <p class="text-gray-500 dark:text-gray-400">Alles rund um Ihren Online-Auftritt</p>

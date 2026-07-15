@@ -108,7 +108,7 @@ const slides = [
     title: 'Bleiben Sie ganz<br><span style="color:#fb923c">entspannt ...</span>',
     subtitle: 'Ich kümmere mich drum',
     direction: 'left',
-    cta: { label: 'Mein Angebot', href: '#angebot' },
+    cta: { label: 'Meine Leistungen', href: '#leistungen' },
   },
   {
     bg: '/images/slides/birne-sw-farbe1.jpg',

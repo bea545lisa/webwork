@@ -82,13 +82,13 @@
       </p>
 
     </div>
-    <FooterSection v-if="isDirectHandwerkVisit" />
+    <FooterSection v-if="isDirectVisit" />
   </div>
 </template>
 
 <script setup>
 import { useRouter } from 'vue-router';
-import { isDirectHandwerkVisit } from '../router/directVisit.js';
+import { isDirectVisit } from '../router/directVisit.js';
 import FooterSection from '../components/FooterSection.vue';
 
 const router = useRouter();
