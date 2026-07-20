@@ -13,13 +13,13 @@
           </button>
           <h1 class="text-4xl md:text-5xl font-bold text-[#475569] dark:text-gray-100">{{ project.title }}</h1>
         </div>
-        <span class="font-mono text-[#fb923c] text-sm tracking-widest uppercase ml-10">{{ project.subtitle }}</span>
-        <div class="flex flex-wrap gap-6 text-sm text-[#475569] dark:text-gray-300 font-mono mt-3 ml-10">
+        <span class="font-mono text-[#fb923c] text-sm tracking-widest uppercase pl-[53px]">{{ project.subtitle }}</span>
+        <div class="flex flex-wrap gap-6 text-sm text-[#475569] dark:text-gray-300 font-mono mt-3 pl-[53px]">
           <span v-if="project.zeitraum">📅 {{ project.zeitraum }}</span>
           <a v-if="project.url" :href="project.url" target="_blank"
             class="text-[#fb923c] hover:text-[#fb923c] transition">🔗 {{ project.url.includes('github.com') ? 'Git Repo' : 'Website ansehen' }}</a>
         </div>
-        <div class="h-0.75 w-16 bg-[#fb923c] mt-6"></div>
+        <div class="h-[2px] w-16 bg-[#fb923c] mt-6 ml-[53px]"></div>
       </div>
 
       <!-- 2-Spalten Layout -->
