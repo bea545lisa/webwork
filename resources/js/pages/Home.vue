@@ -12,7 +12,7 @@
     <TechMarquee />
     <SloganSection
       text="Man kann den Wind nicht ändern, aber die Segel richtig setzen."
-      bg="/images/slides/block-kite-dark.jpg"
+      bg="/images/slides/kitesurfer.jpg"
       bgPosition="center 90%"
       author="Aristoteles"
     />

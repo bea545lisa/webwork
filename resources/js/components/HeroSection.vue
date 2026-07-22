@@ -102,7 +102,7 @@ import { useRoute } from 'vue-router';
 const route = useRoute();
 const slides = [
   {
-    bg: '/images/slides/meer-strand-liege-large.jpg',
+    bg: '/images/slides/strand-sofa.jpg',
     alt: 'Entspannte Liege am Meer – Sinnbild für Full-Service Webentwicklung in Holzkirchen ohne eigenen Aufwand',
     label: 'Full-Service Webentwicklung · Holzkirchen',
     title: 'Bleiben Sie ganz<br><span style="color:#fb923c">entspannt ...</span>',
@@ -111,7 +111,7 @@ const slides = [
     cta: { label: 'Meine Leistungen', href: '#leistungen' },
   },
   {
-    bg: '/images/slides/birne-sw-farbe1.jpg',
+    bg: '/images/slides/birne-sw-farbe2.jpg',
     alt: 'Glühbirne in Schwarz-Weiß mit Farbakzent – Symbol für frisches Webdesign von der Webagentur im Oberland bei München',
     label: 'Webagentur · Raum München · Oberland',
     title: 'Ich bringe Ihre Website<br>ins <span style="color:#fb923c">richtige Licht</span>',
