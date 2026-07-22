@@ -40,6 +40,11 @@
           <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer Daten sowie das Recht auf Datenübertragbarkeit. Wenden Sie sich dazu an: {{ email }}</p>
         </div>
 
+        <div>
+          <h2 class="font-mono text-[#fb923c] text-xs uppercase tracking-widest mb-2">6. Bildnachweise</h2>
+          <p>Die auf dieser Website verwendeten Fotos und Grafiken wurden selbst erstellt oder mithilfe von KI-Tools selbst generiert. Sie unterliegen keinem fremden Urheberrecht Dritter.</p>
+        </div>
+
       </div>
     </div>
     <FooterSection />
