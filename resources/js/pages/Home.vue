@@ -15,6 +15,7 @@
       bg="/images/slides/kitesurfer.jpg"
       bgPosition="center 90%"
       author="Aristoteles"
+      :aiGenerated="true"
     />
     <PortfolioSection />
     <ContactSection />

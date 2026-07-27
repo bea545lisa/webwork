@@ -14,6 +14,10 @@
     <!-- Overlay -->
     <div class="absolute inset-0 bg-black/15"></div>
 
+    <span v-if="aiGenerated" class="absolute bottom-3 right-4 z-10 text-white/50 text-[8px] font-mono tracking-wide">
+      KI-generiert
+    </span>
+
     <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
       <p class="text-3xl md:text-5xl text-white font-light italic leading-relaxed drop-shadow-lg">
         » {{ text }} «
@@ -28,7 +32,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 
-defineProps({ text: String, author: String, bg: String, bgPosition: String });
+defineProps({ text: String, author: String, bg: String, bgPosition: String, aiGenerated: Boolean });
 
 const sectionRef = ref(null);
 const parallaxOffset = ref(0);

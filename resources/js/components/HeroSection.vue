@@ -27,6 +27,10 @@
         <div class="absolute inset-0 bg-linear-to-r from-[#00000080] via-[#00000040] to-[#0000001a]"></div>
         <div class="absolute inset-0 bg-linear-to-t from-[#00000066] via-transparent to-transparent"></div>
 
+        <span v-if="slide.aiGenerated" class="absolute bottom-3 right-4 z-20 text-white/50 text-[8px] font-mono tracking-wide">
+          KI-generiert
+        </span>
+
         <!-- Text Content -->
         <div class="relative z-10 flex flex-col justify-start pt-[210px] md:justify-center md:pt-0 h-full px-6 md:px-24 max-w-5xl">
 
@@ -87,7 +91,7 @@
     </div>
 
     <!-- Scroll Indicator -->
-    <div class="absolute bottom-10 right-10 md:right-24 flex flex-col items-center gap-2 z-20">
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-24 flex flex-col items-center gap-2 z-20">
       <div class="w-px h-12 bg-linear-to-b from-[#fb923c80] to-transparent"></div>
       <span class="text-gray-500 text-xs font-mono tracking-widest -rotate-90 mt-2">SCROLL</span>
     </div>
@@ -103,6 +107,7 @@ const route = useRoute();
 const slides = [
   {
     bg: '/images/slides/strand-sofa.jpg',
+    aiGenerated: true,
     alt: 'Entspannte Liege am Meer – Sinnbild für Full-Service Webentwicklung in Holzkirchen ohne eigenen Aufwand',
     label: 'Full-Service Webentwicklung · Holzkirchen',
     title: 'Bleiben Sie ganz<br><span style="color:#fb923c">entspannt ...</span>',
@@ -112,6 +117,7 @@ const slides = [
   },
   {
     bg: '/images/slides/birne-sw-farbe2.jpg',
+    aiGenerated: true,
     alt: 'Glühbirne in Schwarz-Weiß mit Farbakzent – Symbol für frisches Webdesign von der Webagentur im Oberland bei München',
     label: 'Webagentur · Raum München · Oberland',
     title: 'Ich bringe Ihre Website<br>ins <span style="color:#fb923c">richtige Licht</span>',
@@ -130,6 +136,7 @@ const slides = [
   },
   {
     bg: '/images/slides/handwerker.jpg',
+    aiGenerated: true,
     alt: 'Handwerker bei der Arbeit – Webseiten-Spezial für Handwerksbetriebe zum Festpreis inklusive Schnellbewerbung',
     label: 'Branchen-Spezial · Handwerksbetriebe',
     title: 'Ihr Handwerk verdient<br>einen <span style="color:#fb923c">starken Auftritt</span>',
