@@ -19,7 +19,7 @@
           <a v-if="project.url" :href="project.url" target="_blank"
             class="text-[#fb923c] hover:text-[#fb923c] transition">🔗 {{ project.url.includes('github.com') ? 'Git Repo' : 'Website ansehen' }}</a>
         </div>
-        <div class="h-[2px] w-16 bg-[#fb923c] mt-6 ml-[53px]"></div>
+        <div class="h-[2px] w-16 bg-[#fb923c] mt-6 ml-[56px]"></div>
       </div>
 
       <!-- 2-Spalten Layout -->
