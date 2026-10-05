@@ -56,8 +56,10 @@ class ContactController extends Controller
             return 'zu schnell';
         }
 
-        // Kauderwelsch wie "rvEQPBTpiUONVsEBbEHIDj": Name und Nachricht je ein Wort
-        if ($this->isGibberish($data['name']) && $this->isGibberish($data['message'])) {
+        // Kauderwelsch wie "rvEQPBTpiUONVsEBbEHIDj": Nachricht besteht nur daraus
+        // oder ein Wort im Namen sieht so aus
+        $nameWords = preg_split('/\s+/', trim($data['name']));
+        if ($this->isGibberish($data['message']) || array_filter($nameWords, fn ($w) => $this->isGibberish($w))) {
             return 'kauderwelsch';
         }
 
