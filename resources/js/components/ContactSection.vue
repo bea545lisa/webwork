@@ -77,7 +77,7 @@
             ✓ Vielen Dank! Ich melde mich bald.
           </p>
           <p v-if="error" class="text-red-400 text-sm text-center font-mono">
-            ✗ Fehler beim Senden. Bitte versuche es erneut.
+            ✗ {{ error }}
           </p>
         </form>
 
@@ -93,7 +93,9 @@ const email = ['mail', 'webwork-oberland.de'].join('@');
 const emptyForm = () => ({ name: '', email: '', message: '', website: '' });
 const form = ref(emptyForm());
 const success = ref(false);
-const error = ref(false);
+const error = ref('');
+const sendError = 'Fehler beim Senden. Bitte versuchen Sie es erneut.';
+const tooManyError = 'Zu viele Anfragen. Bitte versuchen Sie es in ein paar Minuten erneut oder melden Sie sich per Telefon oder E-Mail.';
 const loading = ref(false);
 // Zeitfalle: Bots schicken das Formular in Sekundenbruchteilen ab
 let startedAt = Date.now();
@@ -101,7 +103,7 @@ let startedAt = Date.now();
 async function submitForm() {
   if (form.value.website) return;
   loading.value = true;
-  error.value = false;
+  error.value = '';
   success.value = false;
 
   try {
@@ -122,10 +124,11 @@ async function submitForm() {
       form.value = emptyForm();
       startedAt = Date.now();
     } else {
-      error.value = true;
+      // 429 = Rate-Limit auf der Route (3 Anfragen pro 10 Minuten)
+      error.value = res.status === 429 ? tooManyError : sendError;
     }
   } catch (e) {
-    error.value = true;
+    error.value = sendError;
   } finally {
     loading.value = false;
   }
