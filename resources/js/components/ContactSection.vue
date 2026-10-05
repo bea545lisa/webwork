@@ -41,8 +41,8 @@
         <!-- Formular -->
         <form @submit.prevent="submitForm" class="space-y-4 mt-[10px]">
           <!-- Honeypot (unsichtbar für Menschen, Bots füllen es aus) -->
-          <div style="display:none">
-            <input v-model="form.honeypot" type="text" tabindex="-1" autocomplete="off" />
+          <div aria-hidden="true" style="position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden">
+            <label>Website <input v-model="form.website" name="website" type="text" tabindex="-1" autocomplete="off" /></label>
           </div>
           <div class="grid grid-cols-2 gap-4">
             <div>
@@ -90,13 +90,16 @@
 import { ref } from 'vue';
 
 const email = ['mail', 'webwork-oberland.de'].join('@');
-const form = ref({ name: '', email: '', message: '', honeypot: '' });
+const emptyForm = () => ({ name: '', email: '', message: '', website: '' });
+const form = ref(emptyForm());
 const success = ref(false);
 const error = ref(false);
 const loading = ref(false);
+// Zeitfalle: Bots schicken das Formular in Sekundenbruchteilen ab
+let startedAt = Date.now();
 
 async function submitForm() {
-  if (form.value.honeypot) return;
+  if (form.value.website) return;
   loading.value = true;
   error.value = false;
   success.value = false;
@@ -109,13 +112,15 @@ async function submitForm() {
         name: form.value.name,
         email: form.value.email,
         message: form.value.message,
-        honeypot: form.value.honeypot,
+        website: form.value.website,
+        elapsed: Date.now() - startedAt,
       }),
     });
 
     if (res.ok) {
       success.value = true;
-      form.value = { name: '', email: '', message: '', honeypot: '' };
+      form.value = emptyForm();
+      startedAt = Date.now();
     } else {
       error.value = true;
     }

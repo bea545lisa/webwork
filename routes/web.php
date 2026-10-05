@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 
-Route::post('/contact', [ContactController::class, 'send']);
+// Max. 3 Anfragen pro IP in 10 Minuten
+Route::post('/contact', [ContactController::class, 'send'])->middleware('throttle:3,10');
 
 // Alte Joomla-URLs (Vorgänger-Website): geben absichtlich 410 (dauerhaft entfernt)
 // zurück, statt wie der Catch-all unten mit 200 die Startseite auszuliefern.

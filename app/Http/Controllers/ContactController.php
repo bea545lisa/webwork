@@ -18,8 +18,13 @@ class ContactController extends Controller
             'message' => 'required|string|max:2000',
         ]);
 
-        // Honeypot-Check
-        if ($request->input('honeypot')) {
+        // Spam wird still verworfen (Bot bekommt "Erfolg" und versucht es nicht anders)
+        if ($reason = $this->spamReason($request, $validated)) {
+            Log::info('Kontaktformular: Spam verworfen (' . $reason . ')', [
+                'ip'    => $request->ip(),
+                'name'  => $validated['name'],
+                'email' => $validated['email'],
+            ]);
             return response()->json(['success' => true]);
         }
 
@@ -36,5 +41,39 @@ class ContactController extends Controller
         }
 
         return response()->json(['success' => true]);
+    }
+
+    private function spamReason(Request $request, array $data): ?string
+    {
+        // Honeypot: für Menschen unsichtbares Feld, Bots füllen es aus
+        if ($request->filled('website')) {
+            return 'honeypot';
+        }
+
+        // Zeitfalle: Menschen brauchen länger als 3 Sekunden zum Ausfüllen,
+        // fehlt der Wert, wurde das Formular ohne JS direkt gepostet
+        if ((int) $request->input('elapsed', 0) < 3000) {
+            return 'zu schnell';
+        }
+
+        // Kauderwelsch wie "rvEQPBTpiUONVsEBbEHIDj": Name und Nachricht je ein Wort
+        if ($this->isGibberish($data['name']) && $this->isGibberish($data['message'])) {
+            return 'kauderwelsch';
+        }
+
+        return null;
+    }
+
+    private function isGibberish(string $value): bool
+    {
+        $value = trim($value);
+
+        // Ein einziges langes Wort aus reinen Buchstaben ...
+        if (!preg_match('/^[a-zA-Z]{10,}$/', $value)) {
+            return false;
+        }
+
+        // ... mit vielen Groß-/Kleinbuchstaben-Wechseln mitten im Wort
+        return preg_match_all('/[a-z][A-Z]/', $value) >= 3;
     }
 }
